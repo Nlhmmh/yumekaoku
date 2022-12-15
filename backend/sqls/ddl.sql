@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS `rental_house`;
-CREATE DATABASE IF NOT EXISTS `rental_house` CHARACTER SET UTF8MB4 COLLATE UTF8MB4_GENERAL_CI;
-USE `rental_house`;
+-- DROP DATABASE IF EXISTS `rental_house`;
+-- CREATE DATABASE IF NOT EXISTS `rental_house` CHARACTER SET UTF8MB4 COLLATE UTF8MB4_GENERAL_CI;
+-- USE `rental_house`;
 
-CREATE TABLE `users` (
+CREATE TABLE `rental_house.user` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
@@ -15,7 +15,7 @@ CREATE TABLE `users` (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE `categories` (
+CREATE TABLE `rental_house.category` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -23,16 +23,16 @@ CREATE TABLE `categories` (
     PRIMARY KEY(id)
 );
 
-INSERT INTO `categories` (id, name, created_at) VALUES(1, '1LDK Apartment', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(2, '2LDK Apartment', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(3, '3LDK Apartment', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(4, '1K Apartment', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(5, '1R Apartment', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(6, 'Retail shop', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(7, 'Sharedhouse', CURRENT_TIMESTAMP());
-INSERT INTO `categories` (id, name, created_at) VALUES(8, 'Office', CURRENT_TIMESTAMP());
+INSERT INTO `rental_house.category` (id, name, created_at) VALUES(1, '1LDK Apartment', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(2, '2LDK Apartment', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(3, '3LDK Apartment', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(4, '1K Apartment', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(5, '1R Apartment', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(6, 'Retail shop', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(7, 'Sharedhouse', CURRENT_TIMESTAMP());
+-- INSERT INTO `category` (id, name, created_at) VALUES(8, 'Office', CURRENT_TIMESTAMP());
 
-CREATE TABLE `estates` (
+CREATE TABLE `rental_house.estate` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
     description VARCHAR(255) NOT NULL,
@@ -46,10 +46,10 @@ CREATE TABLE `estates` (
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
-    FOREIGN KEY(category_id) REFERENCES categories(id)
+    FOREIGN KEY(category_id) REFERENCES category(id)
 );
 
-CREATE TABLE `appointments` (
+CREATE TABLE `rental_house.appointment` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
@@ -61,6 +61,6 @@ CREATE TABLE `appointments` (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
-    FOREIGN KEY (user_id) REFERENCES users (id),
-	FOREIGN KEY (estate_id) REFERENCES estates (id)
+    FOREIGN KEY (user_id) REFERENCES user (id),
+	FOREIGN KEY (estate_id) REFERENCES estate (id)
 );
