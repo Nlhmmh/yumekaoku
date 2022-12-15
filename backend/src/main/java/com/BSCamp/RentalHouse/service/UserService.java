@@ -1,5 +1,9 @@
 package com.BSCamp.RentalHouse.service;
 
-public interface UserService {
+import java.util.List;
 
+import com.BSCamp.RentalHouse.entity.User;
+
+public interface UserService {
+//  public List<User> getByNameOrEmailOrPhoneNumber(String filter);
 }

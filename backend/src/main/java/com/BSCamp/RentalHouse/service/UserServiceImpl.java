@@ -13,10 +13,11 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepo userRepo;
-	@Override
-	public List<User> getByNameOrEmailOrPhoneNumber(String filter) {
-		// TODO Auto-generated method stub
-		return userRepo.findByNameOrEmailOrPhoneNumber(filter);
-	}
+	
+//	@Override
+//	public List<User> getByNameOrEmailOrPhoneNumber(String filter) {
+//		// TODO Auto-generated method stub
+//		return userRepo.findByNameOrEmailOrPhoneNumber(filter);
+//	}
 
 }
