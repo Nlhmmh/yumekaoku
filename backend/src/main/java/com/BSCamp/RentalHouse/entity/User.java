@@ -15,25 +15,24 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.ColumnDefault;
 
 @Entity
-public class User implements Serializable{
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	@Column(length = 20 , nullable = false)
+
+	@Column(length = 20, nullable = false)
 	@NotBlank(message = "Required")
 	private String name;
-	
-	@Column(length = 20 , nullable = false, unique = true)
+
+	@Column(length = 100, nullable = false, unique = true)
 	@NotBlank(message = "Required")
 	private String email;
-	
-	@Column(name = "phone_number" ,length = 20 , nullable = false)
-	@NotBlank(message = "Required")
+
+	@Column(length = 20)
 	private String phoneNumber;
-	
+
 	@Column(columnDefinition = "ENUM('admin','user') NOT NULL")
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
@@ -41,25 +40,24 @@ public class User implements Serializable{
 	@Column(columnDefinition = "ENUM('active','deactivated') NOT NULL")
 	@Enumerated(EnumType.STRING)
 	private UserStatus status;
-	
-	@Column(length = 100 ,nullable = false)
+
+	@Column(length = 150, nullable = false)
 	@NotBlank(message = "Required")
 	private String password;
-	
+
 	@Column(nullable = false)
 	@ColumnDefault("CURRENT_TIMESTAMP")
 	private LocalDateTime createdAt;
-	
-	private LocalDateTime updatedAt;
-	
-	public User() {
-		
-	}
-	
 
-	public User(@NotBlank(message = "Required") String name, @NotBlank(message = "Required") String email,
-			@NotBlank(message = "Required") String phoneNumber, UserRole role, UserStatus status,
-			@NotBlank(message = "Required") String password) {
+	private LocalDateTime updatedAt;
+
+	public User() {
+
+	}
+
+	public User(int id, @NotBlank(message = "Required") String name, @NotBlank(message = "Required") String email,
+			String phoneNumber, UserRole role, UserStatus status, @NotBlank(message = "Required") String password) {
+		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
@@ -68,6 +66,15 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
+	public User(@NotBlank(message = "Required") String name, @NotBlank(message = "Required") String email,
+			String phoneNumber, UserRole role, UserStatus status, @NotBlank(message = "Required") String password) {
+		this.name = name;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.role = role;
+		this.status = status;
+		this.password = password;
+	}
 
 	public int getId() {
 		return id;
@@ -140,5 +147,5 @@ public class User implements Serializable{
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
+
 }
