@@ -27,19 +27,19 @@ public class CategoryController {
 	CategoryService categoryService;
 
 	@GetMapping("/categories")
-	public List<Category> getCategories(@RequestParam String name) {
+	public List<Category> getCategories(@RequestParam(required = false) String name) {
 		if (name == null) {
 			return categoryService.getAll();
 		}
 		return categoryService.getAllByName(name);
 	}
 
-	@PostMapping("/categories")
+	@PostMapping("/categories/create")
 	public ResponseEntity<?> createCategory(@Valid @RequestBody Category category) {
 		return ResponseEntity.ok(categoryService.create(category));
 	}
 
-	@PutMapping("/categories/{category_id}")
+	@PutMapping("/categories/update/{category_id}")
 	public ResponseEntity<?> updateCategory(@PathVariable("category_id") int categoryId,
 			@Valid @RequestBody Category category) {
 		Category updatedCategory = categoryService.update(categoryId, category);
@@ -49,7 +49,7 @@ public class CategoryController {
 		return ResponseEntity.ok().body(updatedCategory);
 	}
 
-	@DeleteMapping("/categories/{category_id")
+	@DeleteMapping("/categories/delete/{category_id}")
 	public ResponseEntity<?> deleteCategory(@PathVariable("category_id") int categoryId) {
 		boolean isDeleted = categoryService.delete(categoryId);
 		if (!isDeleted) {
