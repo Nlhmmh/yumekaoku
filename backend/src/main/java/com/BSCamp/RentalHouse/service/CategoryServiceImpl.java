@@ -14,17 +14,20 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	CategoryRepo categoryRepo;
-	
+
 	@Override
 	public List<Category> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryRepo.findAll();
+	}
+
+	@Override
+	public List<Category> getAllByName(String name) {
+		return categoryRepo.findByName(name);
 	}
 
 	@Override
 	public Category get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryRepo.findById(id).orElse(null);
 	}
 
 	@Override
@@ -35,14 +38,25 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category update(int id, Category category) {
-		// TODO Auto-generated method stub
-		return null;
+		Category toUpdateCategory = this.get(id);
+		if (toUpdateCategory == null) {
+			return null;
+		}
+		toUpdateCategory.setId(id);
+		toUpdateCategory.setName(category.getName());
+		toUpdateCategory.setUpdatedAt(LocalDateTime.now());
+		categoryRepo.save(toUpdateCategory);
+		return toUpdateCategory;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		Category category = this.get(id);
+		if (category == null) {
+			return false;
+		}
+		categoryRepo.deleteById(id);
+		return true;
 	}
 
 }
