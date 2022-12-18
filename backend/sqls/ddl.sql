@@ -44,9 +44,9 @@ CREATE TABLE `rental_house.estate` (
 
 CREATE TABLE `rental_house.appointment` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL UNIQUE,
-    phone_number VARCHAR(100) NOT NULL,
+--     name VARCHAR(100) NOT NULL,
+--     email VARCHAR(150) NOT NULL UNIQUE,
+--     phone_number VARCHAR(100) NOT NULL,
     appointment_date DATETIME NOT NULL,
     message VARCHAR(255),
     user_id INT UNSIGNED,
