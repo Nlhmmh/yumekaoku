@@ -22,7 +22,7 @@ public class EstateController {
 		return estateService.getAll();
 	}
 
-	@GetMapping("/estate/{estate_id}")
+	@GetMapping("/estates/{estate_id}")
 	public ResponseEntity<Estate> getEstate(@PathVariable("estate_id") int estateId) {
 		Estate estate = estateService.get(estateId);
 		if (estate == null) {
@@ -30,7 +30,6 @@ public class EstateController {
 		}
 		return ResponseEntity.ok().body(estate);
 	}
-	
 
 
 }
