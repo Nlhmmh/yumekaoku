@@ -25,7 +25,7 @@ import com.BSCamp.RentalHouse.service.EstateService;
 import com.BSCamp.RentalHouse.service.UserService;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class AdminController {
 
 	@Autowired
@@ -36,7 +36,7 @@ public class AdminController {
 
 	@Autowired
 	CategoryService categoryService;
-
+	
 	// Admin User Routes
 	@GetMapping("/users")
 	public List<User> getUsers(@RequestParam(required = false) String filter) {
@@ -70,6 +70,11 @@ public class AdminController {
 	}
 
 //	Estate Routes
+	@GetMapping("/estates")
+	public List<Estate> getEstates() {
+		return estateService.getAll();
+	}
+	
 	@PostMapping("/estates/create")
 	public ResponseEntity<?> createEstate(@Valid @RequestBody Estate estate) {
 		if (estate.getCategory() == null) {
@@ -102,6 +107,13 @@ public class AdminController {
 	}
 
 	// Category Routes
+	@GetMapping("/categories")
+	public List<Category> getCategories(@RequestParam(required = false) String name) {
+		if (name == null) {
+			return categoryService.getAll();
+		}
+		return categoryService.getAllByName(name);
+	}
 	@PostMapping("/categories/create")
 	public ResponseEntity<?> createCategory(@Valid @RequestBody Category category) {
 		return ResponseEntity.ok(categoryService.create(category));

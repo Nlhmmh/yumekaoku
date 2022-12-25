@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card elevation="2">
+    <v-card elevation="2" class="pa-5">
       <v-form ref="loginForm">
         <v-text-field
           v-model="email"
@@ -27,11 +27,11 @@
           @click:append="showPassword = !showPassword"
         >
         </v-text-field>
-
+        <!-- :disabled="!loginForm" -->
         <v-btn
           block
           elevation="2"
-          :disabled="!loginForm"
+       
           color="primary"
           class="m-4"
           @click="login()"
@@ -56,7 +56,7 @@ export default {
 
   data: () => {
     return {
-      loginForm: true,
+      loginForm: false,
       showPassword: false,
       loading: false,
       errorAlert: false,
@@ -81,8 +81,9 @@ export default {
               this.$store.commit("setLoginUser", data);
               if (data.role === "admin") {
                 this.$router.push({ path: "/admin/estates" });
+              } else {
+                this.$router.push({ path: "/" });
               }
-              this.$router.push({ path: "/" });
             }
           } else {
             this.errorAlert = true;

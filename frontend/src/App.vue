@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <appbar></appbar>
-      <router-view class="mx-3 my-2" style="height: 90%" />
+      <router-view class="mx-3 my-2" style="height: 100%" />
       <footing></footing>
     </v-main>
   </v-app>
@@ -17,11 +17,9 @@ export default {
 
   components: {
     appbar,
-    footing
+    footing,
   },
-  
-  data: () => ({
-    //
-  }),
+
+  data: () => ({}),
 };
 </script>

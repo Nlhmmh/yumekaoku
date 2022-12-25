@@ -2,8 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from "../views/home.vue"
 import login from '../views/login.vue'
+import profile from '../views/profile.vue'
 import admin_estate_list from "../views/admin_estate_list.vue";
 import admin_category_list from "../views/admin_category_list.vue";
+import estate_detail from "../views/estate_detail.vue";
 
 Vue.use(VueRouter)
 
@@ -17,6 +19,16 @@ const routes = [
     path: '/login',
     name: 'login',
     component: login
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: profile
+  },
+  {
+    path: "/estates/:id/detail",
+    name: "estate_detail",
+    component: estate_detail,
   },
 
   //Admin Auth routes

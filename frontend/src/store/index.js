@@ -10,13 +10,14 @@ export default new Vuex.Store({
   },
   getters: {
     loginUser: (state) => {
+      console.log(state);
       let loginUser = sessionStorage.getItem("loginUser");
       if (loginUser != null) {
         state.loginUser = JSON.parse(loginUser);
         return JSON.parse(loginUser);
-      } else {
-        return state.loginUser;
       }
+      return state.loginUser;
+
     },
 
     isLogin: (state) => {
@@ -24,9 +25,8 @@ export default new Vuex.Store({
       if (isLogin != null) {
         state.isLogin = isLogin;
         return isLogin;
-      } else {
-        return state.isLogin;
       }
+      return state.isLogin;
     }
   },
   mutations: {
