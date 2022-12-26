@@ -1,6 +1,11 @@
 ## 【夢家屋】Yumekaoku - Online Rental House Project
 It contains both frontend and backend source for an online rental house management system.
 
+### Warning
+```
+Only Pull frontend
+```
+
 ```
 Frotend Vue JS
 Backend Spring Boot
