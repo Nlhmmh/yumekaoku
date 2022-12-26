@@ -1,5 +1,8 @@
+<style>
+  @import '@/assets/main.css';
+</style>
 <template>
-  <div>
+  <v-container class="no-pd-mr" fill-height fluid>
     <!-- Advanced search form in landing page -->
     <v-img
       lazy-src="https://picsum.photos/id/11/10/6"
@@ -13,7 +16,8 @@
       title="Featured Homes"
       subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
     >
-      <v-row dense>
+      <v-row dense align="center"
+      justify="center">
         <v-col v-for="estate in estates" :key="estate.id">
           <estate_card
             :id="estate.id"
@@ -45,7 +49,7 @@
         </v-col>
       </v-row>
     </section_wrapper>
-  </div>
+  </v-container>
 </template>
 
 <script>
