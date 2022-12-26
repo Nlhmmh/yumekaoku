@@ -1,8 +1,5 @@
-<style>
-  @import '@/assets/main.css';
-</style>
 <template>
-  <v-container class="no-pd-mr" fill-height fluid>
+  <div>
     <!-- Advanced search form in landing page -->
     <v-img
       lazy-src="https://picsum.photos/id/11/10/6"
@@ -12,12 +9,11 @@
     ></v-img>
 
     <!-- Featured homes section -->
-    <section_wrapper
+    <section_container
       title="Featured Homes"
       subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
     >
-      <v-row dense align="center"
-      justify="center">
+      <v-row dense>
         <v-col v-for="estate in estates" :key="estate.id">
           <estate_card
             :id="estate.id"
@@ -27,7 +23,7 @@
             :category="estate.category"
           ></estate_card>
         </v-col> </v-row
-    ></section_wrapper>
+    ></section_container>
 
     <!-- Home Categories Section -->
     <section_wrapper
@@ -49,17 +45,18 @@
         </v-col>
       </v-row>
     </section_wrapper>
-  </v-container>
+  </div>
 </template>
 
 <script>
 import section_wrapper from "../components/section_wrapper.vue";
+import section_container from "../components/section_container.vue";
 import estate_card from "../components/estate_card.vue";
 import http from "@/utils/http";
 
 export default {
   name: "home",
-  components: { section_wrapper, estate_card },
+  components: { section_wrapper,section_container, estate_card },
 
   data: () => ({
     estates: [],

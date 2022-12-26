@@ -43,6 +43,11 @@ export default {
           icon: "mdi-home",
           path: "/admin/categories",
         },
+        {
+          title: "Users",
+          icon: "mdi-home",
+          path: "/admin/users",
+        },
       ],
     };
   },

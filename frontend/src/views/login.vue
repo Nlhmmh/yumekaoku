@@ -1,6 +1,9 @@
 <template>
-  <v-container>
-    <v-card elevation="2" class="pa-5">
+  <div class="d-flex align-center justify-center" style="height: auto !important;">
+    <v-card elevation="2" class="pa-5" style="width: 35% !important;">
+      <h1 class="font-weight-black text-center">
+        Login Form
+      </h1>
       <v-form ref="loginForm">
         <v-text-field
           v-model="email"
@@ -45,7 +48,7 @@
         </v-btn>
       </v-form>
     </v-card>
-  </v-container>
+  </div>
 </template>
 
 <script>

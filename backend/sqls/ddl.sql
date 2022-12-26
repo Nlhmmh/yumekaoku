@@ -2,7 +2,7 @@
 -- CREATE DATABASE IF NOT EXISTS `rental_house` CHARACTER SET UTF8MB4 COLLATE UTF8MB4_GENERAL_CI;
 -- USE `rental_house`;
 
-CREATE TABLE `rental_house.user` (
+CREATE TABLE `user` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -15,7 +15,7 @@ CREATE TABLE `rental_house.user` (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE `rental_house.category` (
+CREATE TABLE `category` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -23,7 +23,7 @@ CREATE TABLE `rental_house.category` (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE `rental_house.estate` (
+CREATE TABLE `estate` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     title VARCHAR(200) NOT NULL,
     description VARCHAR(255) NOT NULL,
@@ -39,10 +39,10 @@ CREATE TABLE `rental_house.estate` (
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
-    FOREIGN KEY(category_id) REFERENCES `rental_house.category`(id)
+    FOREIGN KEY(category_id) REFERENCES `category`(id)
 );
 
-CREATE TABLE `rental_house.appointment` (
+CREATE TABLE `appointment` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 --     name VARCHAR(100) NOT NULL,
 --     email VARCHAR(150) NOT NULL UNIQUE,
@@ -54,6 +54,6 @@ CREATE TABLE `rental_house.appointment` (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(id),
-    FOREIGN KEY (user_id) REFERENCES `rental_house.user` (id),
-	FOREIGN KEY (estate_id) REFERENCES `rental_house.estate` (id)
+    FOREIGN KEY (user_id) REFERENCES `user` (id),
+	FOREIGN KEY (estate_id) REFERENCES `estate` (id)
 );

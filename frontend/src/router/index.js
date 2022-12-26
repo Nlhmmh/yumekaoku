@@ -6,6 +6,7 @@ import profile from '../views/profile.vue'
 import admin_estate_list from "../views/admin_estate_list.vue";
 import admin_category_list from "../views/admin_category_list.vue";
 import estate_detail from "../views/estate_detail.vue";
+import admin_user_list from "../views/admin_user_list.vue";
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,15 @@ const routes = [
     path: "/admin/categories",
     name: 'admin_category_list',
     component: admin_category_list,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/users",
+    name: 'admin_user_list',
+    component: admin_user_list,
     meta: {
       requiresAuth: true,
       requiresAdmin: true,

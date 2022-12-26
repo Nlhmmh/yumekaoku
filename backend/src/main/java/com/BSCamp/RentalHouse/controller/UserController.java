@@ -1,5 +1,10 @@
 package com.BSCamp.RentalHouse.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.BSCamp.RentalHouse.entity.LoginRequest;
 import com.BSCamp.RentalHouse.entity.User;
+import com.BSCamp.RentalHouse.entity.UserRole;
 import com.BSCamp.RentalHouse.service.UserService;
 
 @RestController
@@ -31,13 +37,22 @@ public class UserController {
 		}
 		return ResponseEntity.ok().body(user);
 	}
+	
+	@GetMapping("/logout")
+	public Boolean logout(HttpSession session, HttpServletResponse response)
+			throws IOException{
+				session.invalidate();
+				return null;
+	}
 
 	@PostMapping("/register")
-	public ResponseEntity<?> register(@Valid @RequestBody User user) {
+	public ResponseEntity<?> register(@Valid @RequestBody User user, HttpSession session) {
+		user.setRole(UserRole.user);
 		User createdUser = userService.create(user);
 		if (createdUser == null) {
 			return ResponseEntity.badRequest().body("User with same email already existed.");
 		}
+		session.setAttribute("loginUser", createdUser);
 		return ResponseEntity.ok().body(createdUser);
 	}
 	
