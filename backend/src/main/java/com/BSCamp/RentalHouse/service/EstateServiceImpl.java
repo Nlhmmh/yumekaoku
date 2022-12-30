@@ -21,8 +21,18 @@ public class EstateServiceImpl implements EstateService {
 	}
 
 	@Override
-	public List<Estate> getByCategory(Category category) {
+	public List<Estate> getAllByIsRentOutFalse() {
+		return estateRepo.findByIsRentOutFalse();
+	}
+
+	@Override
+	public List<Estate> getAllByCategory(Category category) {
 		return estateRepo.findByCategory(category);
+	}
+
+	@Override
+	public List<Estate> getByTitleOrLocation(String title, String location) {
+		return estateRepo.findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(title, location);
 	}
 
 	@Override
@@ -32,6 +42,7 @@ public class EstateServiceImpl implements EstateService {
 
 	@Override
 	public Estate create(Estate estate) {
+		estate.setRentOut(false);
 		estate.setCreatedAt(LocalDateTime.now());
 		return estateRepo.save(estate);
 	}

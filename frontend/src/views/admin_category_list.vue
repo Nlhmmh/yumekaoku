@@ -61,7 +61,13 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="createDialog = false">Cancel</v-btn>
+          <v-btn
+            @click="
+              createDialog = false;
+              name = '';
+            "
+            >Cancel</v-btn
+          >
           <v-btn color="primary" dark @click="createCategory()">Save</v-btn>
         </v-card-actions>
       </v-card>
@@ -84,7 +90,13 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="updateDialog = false">Cancel</v-btn>
+          <v-btn
+            @click="
+              updateDialog = false;
+              name = '';
+            "
+            >Cancel</v-btn
+          >
           <v-btn color="primary" dark @click="updateCategory(item)">Save</v-btn>
         </v-card-actions>
       </v-card>
@@ -121,7 +133,7 @@ export default {
         { text: "Name", value: "name", sortable: true },
         { text: "Actions", value: "actions", sortable: false },
       ],
-      search: null,
+      search: '2LDK',
       categorylist: [],
       selectItem: {},
 
@@ -137,12 +149,19 @@ export default {
     };
   },
   async created() {
-    this.fetchCategories({ params: { search: this.search } });
+    await this.fetchCategories();
   },
 
   methods: {
-    async fetchCategories(params) {
-      const res = await http.get("/api/admin/categories", params);
+    async fetchCategories() {
+      const res = await http.get(
+        "/api/admin/categories",
+        this.search
+          ? {
+              name: this.search,
+            }
+          : null
+      );
       if (res && res.status === 200) {
         const data = await res.json();
         if (data) {
@@ -156,7 +175,7 @@ export default {
         const res = await http.post("/api/admin/categories/create", {
           name: this.name,
         });
-        
+
         if (res && res.status === 200) {
           await this.fetchCategories();
           this.createDialog = false;

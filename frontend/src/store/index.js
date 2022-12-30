@@ -10,7 +10,6 @@ export default new Vuex.Store({
   },
   getters: {
     loginUser: (state) => {
-      console.log(state);
       let loginUser = sessionStorage.getItem("loginUser");
       if (loginUser != null) {
         state.loginUser = JSON.parse(loginUser);

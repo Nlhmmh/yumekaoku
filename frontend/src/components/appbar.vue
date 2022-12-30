@@ -40,15 +40,14 @@
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            <v-icon class="grey lighten-1" dark> mdi-account-circle </v-icon>
           </v-list-item-avatar>
-         <span>
-          {{ loginUser.name }}
-          <br>
-          {{ loginUser.email }}
-         </span>
+          <span>
+            {{ loginUser.name }}
+            <br />
+            {{ loginUser.email }}
+          </span>
         </v-list-item>
-
       </v-list>
       <v-divider></v-divider>
       <v-list nav dense>
@@ -70,9 +69,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block @click="logout()">
-            Logout
-          </v-btn>
+          <v-btn block @click="logout()"> Logout </v-btn>
         </div>
       </template>
     </v-navigation-drawer>

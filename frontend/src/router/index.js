@@ -6,6 +6,9 @@ import profile from '../views/profile.vue'
 import admin_estate_list from "../views/admin_estate_list.vue";
 import admin_category_list from "../views/admin_category_list.vue";
 import estate_detail from "../views/estate_detail.vue";
+import admin_estate_create from "../views/admin_estate_create.vue";
+import admin_estate_update from "../views/admin_estate_update.vue";
+import categorized_estates from "../views/categorized_estates.vue";
 
 Vue.use(VueRouter)
 
@@ -30,12 +33,35 @@ const routes = [
     name: "estate_detail",
     component: estate_detail,
   },
+  {
+    path: "/categories/:categoryId/estates",
+    name: "categorized_estates",
+    component: categorized_estates,
+  },
 
   //Admin Auth routes
   {
     path: "/admin/estates",
     name: 'admin_estate_list',
     component: admin_estate_list,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/estate/create",
+    name: "admin_estate_create",
+    component: admin_estate_create,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/estate/:id/update",
+    name: "admin_estate_update",
+    component: admin_estate_update,
     meta: {
       requiresAuth: true,
       requiresAdmin: true,
