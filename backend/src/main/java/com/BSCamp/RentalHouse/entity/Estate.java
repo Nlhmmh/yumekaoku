@@ -32,7 +32,7 @@ public class Estate implements Serializable {
 	private String description;
 
 	@Column(nullable = false)
-	@NotBlank(message = "Required")
+//	@NotBlank(message = "Required")
 	private double rentFee;
 
 	@ColumnDefault("0")
@@ -48,16 +48,14 @@ public class Estate implements Serializable {
 	@NotBlank(message = "Required")
 	private String location;
 
-	@Column(length = 255, nullable = false)
-	@NotBlank(message = "Required")
+	@Column(length = 255)
 	private String remarks;
 
 	@Column(length = 255)
-	@NotBlank(message = "Required")
+//	@NotBlank(message = "Required")
 	private String imagePath;
 
 	@Column(length = 255)
-	@NotBlank(message = "Required")
 	private String videoPath;
 
 	@ManyToOne
@@ -71,6 +69,25 @@ public class Estate implements Serializable {
 	private LocalDateTime updatedAt;
 
 	public Estate() {
+	}
+
+	public Estate(int id, @NotBlank(message = "Required") String title,
+			@NotBlank(message = "Required") String description, double rentFee, double maintenanceFee, int size,
+			boolean isRentOut, @NotBlank(message = "Required") String location, String remarks, String imagePath,
+			String videoPath, Category category) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.rentFee = rentFee;
+		this.maintenanceFee = maintenanceFee;
+		this.size = size;
+		this.isRentOut = isRentOut;
+		this.location = location;
+		this.remarks = remarks;
+		this.imagePath = imagePath;
+		this.videoPath = videoPath;
+		this.category = category;
 	}
 
 	public int getId() {

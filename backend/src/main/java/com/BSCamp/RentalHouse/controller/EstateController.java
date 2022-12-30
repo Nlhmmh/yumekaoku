@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.BSCamp.RentalHouse.entity.Estate;
 import com.BSCamp.RentalHouse.service.EstateService;
 
 @RestController
+@RequestMapping("/api")
 public class EstateController {
 
 	@Autowired
@@ -22,7 +24,7 @@ public class EstateController {
 		return estateService.getAll();
 	}
 
-	@GetMapping("/estate/{estate_id}")
+	@GetMapping("/estates/{estate_id}")
 	public ResponseEntity<Estate> getEstate(@PathVariable("estate_id") int estateId) {
 		Estate estate = estateService.get(estateId);
 		if (estate == null) {
@@ -30,7 +32,6 @@ public class EstateController {
 		}
 		return ResponseEntity.ok().body(estate);
 	}
-	
 
 
 }
