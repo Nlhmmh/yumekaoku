@@ -1,10 +1,13 @@
 import constant from "./constant";
 
 async function get(path, params) {
+    // let url = new URL(constant.LOCAL_API_URL + path);
+    // if (params !== null) {
+    //     url.search = new URLSearchParams(params);
+    // }
     try {
         const res = await fetch(constant.LOCAL_API_URL + path, {
             method: "GET",
-            params: params
         })
         return res;
     } catch (error) {
@@ -77,11 +80,12 @@ async function postMedia(path, file, fileType) {
     }
 }
 
-async function putMedia(path, file, fileType) {
+async function putMedia(path, file, fileType, filePath) {
     try {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("fileType", fileType);
+        formData.append("filePath", filePath);
         const res = await fetch(constant.LOCAL_API_URL + path, {
             method: "PUT",
             body: formData

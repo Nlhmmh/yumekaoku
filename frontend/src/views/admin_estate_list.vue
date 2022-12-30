@@ -1,5 +1,5 @@
 <template>
-  <v-card  class="ma-10 pa-5">
+  <v-card class="ma-10 pa-5">
     <v-card-title>
       Estate List
       <v-spacer></v-spacer>
@@ -21,9 +21,20 @@
       :items-per-page="10"
       :search="search"
     >
-      <template v-slot:item.isRentOut="{ item }">
-        <v-switch v-model="item.isRentOut" inset></v-switch>
+      <template v-slot:item.imagePath="{ item }">
+        <v-img
+          v-if="item.imagePath"
+          :src="apiURL + '/api' + item.imagePath"
+          width="100"
+          height="100"
+          contain
+        ></v-img>
       </template>
+
+      <template v-slot:item.rentOut="{ item }">
+        <v-switch v-model="item.rentOut" inset></v-switch>
+      </template>
+
       <template v-slot:item.actions="{ item }">
         <!-- Edit Estate -->
         <v-btn
@@ -60,20 +71,22 @@
 </template>
 
 <script>
-import http from "@/utils/http";
+import utils from '@/utils/utils';
 
 export default {
   name: "admin_estate_list",
 
   data: () => {
     return {
+      apiURL: utils.constant.LOCAL_API_URL,
       headers: [
         { text: "ID", value: "id", sortable: true },
+        { text: "Image", value: "imagePath", sortable: false },
         { text: "Title", value: "title", sortable: true },
         { text: "Category", value: "category.name", sortable: true },
         { text: "Monthly Rent Fee (¥)", value: "rentFee", sortable: true },
         { text: "Location", value: "location", sortable: false },
-        { text: "RentOut", value: "isRentOut", sortable: false },
+        { text: "RentOut", value: "rentOut", sortable: false },
         { text: "Actions", value: "actions", sortable: false },
       ],
       search: null,
@@ -89,7 +102,7 @@ export default {
 
   methods: {
     async fetchEstates() {
-      const res = await http.get("/api/admin/estates");
+      const res = await utils.http.get("/api/admin/estates", { search: this.search });
       if (res && res.status === 200) {
         const data = await res.json();
         if (data) {
@@ -99,17 +112,17 @@ export default {
     },
 
     async deleteEstate(id) {
-      const res = await http.del(`/api/admin/estates/delete/${id}`);
+      const res = await utils.http.del(`/api/admin/estates/delete/${id}`);
       if (res && res.status === 200) {
         await this.fetchEstates();
         this.deleteDialog = false;
       }
     },
     onClickCreateBtn() {
-      this.$router.push({ path: "/admin/estates/create" });
+      this.$router.push({ path: "/admin/estate/create" });
     },
     onClickUpdateBtn(id) {
-      this.$router.push({ path: `/admin/estates/${id}/update` });
+      this.$router.push({ path: `/admin/estate/${id}/update` });
     },
     onClickDeleteBtn(item) {
       this.deleteDialog = true;

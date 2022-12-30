@@ -21,6 +21,7 @@
             :location="estate.location"
             :rentFee="estate.rentFee"
             :category="estate.category"
+            :imagePath="estate.imagePath"
           ></estate_card>
         </v-col> </v-row
     ></section_wrapper>
@@ -31,15 +32,15 @@
       subtitle="A collection of properties carefully chosen organized by category."
     >
       <v-row dense class="my-5">
-        <v-col v-for="(card, index) in cards" :key="index" :cols="card.flex">
-          <v-card>
+        <v-col v-for="cat in categories" :key="cat.id" :cols="4">
+          <v-card @click="onRouteChange(cat.id)">
             <v-img
-              :src="card.src"
+              src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
             >
-              <v-card-title v-text="card.title"></v-card-title>
+              <v-card-title v-text="cat.name"></v-card-title>
             </v-img>
           </v-card>
         </v-col>
@@ -122,6 +123,10 @@ export default {
           this.categories = data;
         }
       }
+    },
+
+    onRouteChange(id) {
+      this.$router.push({ path: `/categories/${id}/estates` });
     },
   },
 };

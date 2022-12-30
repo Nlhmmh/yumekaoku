@@ -1,9 +1,6 @@
 <template>
-  <v-card class="mx-auto" max-width="300" @click="goToRoute(id)">
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      height="200px"
-    ></v-img>
+  <v-card class="mx-auto" max-width="300" height="400" @click="goToRoute(id)">
+    <v-img width="100%" v-if="imagePath" :src="apiURL + imagePath" height="200px"></v-img>
 
     <v-card-title> {{ title }} </v-card-title>
 
@@ -20,13 +17,18 @@
 </template>
 
 <script>
+import utils from "@/utils/utils";
+
 export default {
   name: "estate_card",
 
-  props: ["id", "title", "location", "rentFee", "category"],
+  props: ["id", "title", "location", "rentFee", "category", "imagePath"],
+
+  data: () => ({ apiURL: `${utils.constant.LOCAL_API_URL}/api` }),
+
   methods: {
     goToRoute(id) {
-      this.$router.push({ path: `/estates/${id}/detail` });
+      this.$router.push({ path: `/estates/${id}` });
     },
   },
 };
