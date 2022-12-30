@@ -23,7 +23,7 @@
     </v-card>
   </div>
 </template>
-  
+
 <script>
 export default {
   name: "profile",
@@ -55,4 +55,3 @@ export default {
   },
 };
 </script>
-  

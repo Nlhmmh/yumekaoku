@@ -1,39 +1,41 @@
 <template>
-  <v-container>
-    <v-card elevation="2" class="pa-5">
-      <v-form ref="loginForm">
+  <div>
+    <v-container>
+      <!-- Login Form -->
+      <v-form ref="loginForm" v-model="loginForm">
+        <!-- Email -->
         <v-text-field
           v-model="email"
-          label="Email"
-          required
           :rules="[
             (v) => !!v || 'Required',
             (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
           ]"
-        >
-        </v-text-field>
+          label="E-mail"
+          required
+        ></v-text-field>
+
+        <!-- Password -->
         <v-text-field
           v-model="password"
-          label="Password"
-          required
+          :counter="10"
           :rules="[
             (v) => !!v || 'Required',
             (v) =>
               (v && v.length <= 10) ||
               'Password must be less than 10 characters',
           ]"
-          :type="showPassword ? 'text' : 'password'"
-          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-          @click:append="showPassword = !showPassword"
-        >
-        </v-text-field>
-        <!-- :disabled="!loginForm" -->
+          :type="passwordShow ? 'text' : 'password'"
+          :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
+          @click:append="passwordShow = !passwordShow"
+          label="Password"
+          required
+        ></v-text-field>
+
+        <!-- Login Btn -->
         <v-btn
-          block
-          elevation="2"
-       
-          color="primary"
-          class="m-4"
+          :disabled="!loginForm"
+          color="success"
+          class="mr-4"
           @click="login()"
         >
           <span v-if="!loading">Login</span>
@@ -43,55 +45,59 @@
             color="primary"
           ></v-progress-circular>
         </v-btn>
+
+        <!-- Error Msg -->
+        <v-alert class="mt-3" v-show="errorAlert" dense type="error">
+          Login Failed! <br />
+          Email or Password is wrong!
+        </v-alert>
       </v-form>
-    </v-card>
-  </v-container>
+    </v-container>
+  </div>
 </template>
 
 <script>
-import http from "@/utils/http";
+// import utils from "../utils/utils";
 
 export default {
   name: "login",
 
-  data: () => {
+  components: {},
+
+  data() {
     return {
       loginForm: false,
-      showPassword: false,
-      loading: false,
-      errorAlert: false,
       email: "",
       password: "",
+      passwordShow: false,
+      // email: "admin@gmail.com",
+      // password: "1111",
+      errorAlert: false,
+      loading: false,
     };
   },
-
   methods: {
     async login() {
       if (this.$refs.loginForm.validate()) {
-        this.errorAlert = false;
-        try {
-          this.loading = true;
-          const res = await http.post("/api/user/login", {
-            email: this.email,
-            password: this.password,
-          });
-          if (res && res.status === 200) {
-            const data = await res.json();
-            if (data) {
-              this.$store.commit("setLoginUser", data);
-              if (data.role === "admin") {
-                this.$router.push({ path: "/admin/estates" });
-              } else {
-                this.$router.push({ path: "/" });
-              }
-            }
-          } else {
-            this.errorAlert = true;
-          }
-        } catch (error) {
-          console.log(error);
-        } finally {
-          this.loading = true;
+        // TODO : Call API
+
+        // Store in Vuex
+        let dummyLoginUser = {
+          email: this.email,
+          // TODO : Data must be from API... Added as manual for Testing
+          name: "tester",
+          phoneNo: "08099992222",
+          role: "user",
+          status: "active",
+        };
+        this.$store.commit("setLoginUser", dummyLoginUser);
+
+        if (dummyLoginUser.role === "admin") {
+          // Go to admin Screen
+          this.$router.push({ path: "/admin/estates" });
+        } else {
+          // Go to home Screen
+          this.$router.push({ path: "/" });
         }
       }
     },

@@ -31,7 +31,7 @@
       subtitle="A collection of properties carefully chosen organized by category."
     >
       <v-row dense class="my-5">
-        <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+        <v-col v-for="(card, index) in cards" :key="index" :cols="card.flex">
           <v-card>
             <v-img
               :src="card.src"
