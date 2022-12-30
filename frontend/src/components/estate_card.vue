@@ -28,7 +28,7 @@ export default {
 
   methods: {
     goToRoute(id) {
-      this.$router.push({ path: `/estates/${id}/detail` });
+      this.$router.push({ path: `/estates/${id}` });
     },
   },
 };

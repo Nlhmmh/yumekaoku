@@ -124,7 +124,7 @@ export default {
   },
 
   async created() {
-    this.fetchEstate();
+    await this.fetchEstate();
   },
   methods: {
     async fetchEstate() {
