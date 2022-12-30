@@ -1,99 +1,85 @@
 <template>
-  <v-container>
-    <v-card elevation="2">
+  <div>
+    <v-container>
+      <!-- Form -->
       <v-form ref="registerForm">
+        <!-- Name Text Field -->
         <v-text-field
-          v-model="email"
-          label="Email"
+          v-model="name"
+          label="Name"
+          placeholder="Mg Mg"
+          :rules="[(v) => !!v || 'Required']"
           required
+        ></v-text-field>
+
+        <!-- Mail Address Text Field -->
+        <v-text-field
+          v-model="mail"
+          label="Mail Address"
+          placeholder="test@gmail.com"
+          :rules="[(v) => !!v || 'Required']"
+          required
+        ></v-text-field>
+
+        <!-- Phone No Text Field -->
+        <v-text-field
+          v-model="phoneNo"
+          label="Phone Number"
+          placeholder="10"
+          type="number"
           :rules="[
             (v) => !!v || 'Required',
-            (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            (v) => (v && v > 0) || 'Phone Number must be greater than 0',
+            (v) => (v && v <= 20) || 'Phone Number must be less than 20',
           ]"
-        >
-        </v-text-field>
+          required
+        ></v-text-field>
+
+        <!-- Password -->
         <v-text-field
           v-model="password"
-          label="Password"
-          required
+          :counter="150"
           :rules="[
             (v) => !!v || 'Required',
             (v) =>
               (v && v.length <= 10) ||
-              'Password must be less than 10 characters',
+              'Password must be less than 150 characters',
           ]"
-          :type="showPassword ? 'text' : 'password'"
-          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-          @click:append="showPassword = !showPassword"
-        >
-        </v-text-field>
+          :type="passwordShow ? 'text' : 'password'"
+          :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
+          @click:append="passwordShow = !passwordShow"
+          label="Password"
+          required
+        ></v-text-field>
 
-        <v-btn
-          block
-          elevation="2"
-          :disabled="!registerForm"
-          color="primary"
-          class="m-4"
-          @click="login()"
+        <!-- @click= and must write at methods: and  -->
+        <v-btn class="mt-5 width-100" color="success" @click="register()"
+          >Register</v-btn
         >
-          <span v-if="!loading">Login</span>
-          <v-progress-circular
-            v-else
-            indeterminate
-            color="primary"
-          ></v-progress-circular>
-        </v-btn>
       </v-form>
-    </v-card>
-  </v-container>
+    </v-container>
+  </div>
 </template>
-  
-  <script>
-import http from "@/utils/http";
 
+<script>
 export default {
   name: "register",
-
-  data: () => {
+  data() {
     return {
-      registerForm: false,
-      showPassword: false,
-      loading: false,
-      errorAlert: false,
-      email: "",
+      name: "",
+      mail: "",
+      phoneNo: 0,
       password: "",
     };
   },
 
   methods: {
-    async login() {
+    async register() {
       if (this.$refs.registerForm.validate()) {
-        this.errorAlert = false;
-        try {
-          this.loading = true;
-          const res = await http.post("/user/register", {
-            name: this.name,
-            phoneNumber: this.phoneNumber,
-            email: this.email,
-            password: this.password,
-          });
-          if (res && res.status === 200) {
-            const data = await res.json();
-            if (data) {
-              this.$store.commit("setLoginUser", data);
-              if (data.role === "admin") {
-                this.$router.push({ path: "/admin" });
-              }
-              this.$router.push({ path: "/" });
-            }
-          } else {
-            this.errorAlert = true;
-          }
-        } catch (error) {
-          console.log(error);
-        } finally {
-          this.loading = true;
-        }
+        // TODO : Call API
+
+        // Go to home Screen
+        this.$router.push({ path: "/" });
       }
     },
   },

@@ -1,23 +1,21 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     isLogin: false,
-    loginUser: {}
+    loginUser: {},
   },
   getters: {
     loginUser: (state) => {
-      console.log(state);
       let loginUser = sessionStorage.getItem("loginUser");
       if (loginUser != null) {
         state.loginUser = JSON.parse(loginUser);
         return JSON.parse(loginUser);
       }
       return state.loginUser;
-
     },
 
     isLogin: (state) => {
@@ -27,8 +25,9 @@ export default new Vuex.Store({
         return isLogin;
       }
       return state.isLogin;
-    }
+    },
   },
+
   mutations: {
     setLoginUser(state, user) {
       sessionStorage.setItem("loginUser", JSON.stringify(user));
@@ -41,10 +40,9 @@ export default new Vuex.Store({
       sessionStorage.removeItem("isLogin");
       state.loginUser = {};
       state.isLogin = false;
-    }
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+
+  actions: {},
+  modules: {},
+});
