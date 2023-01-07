@@ -25,6 +25,7 @@ import com.BSCamp.RentalHouse.service.EstateService;
 import com.BSCamp.RentalHouse.service.UserService;
 
 @RestController
+
 @RequestMapping("/api/admin")
 public class AdminController {
 
@@ -37,7 +38,7 @@ public class AdminController {
 	@Autowired
 	CategoryService categoryService;
 	
-	// Admin User Routes
+	
 	@GetMapping("/users")
 	public List<User> getUsers(@RequestParam(required = false) String filter) {
 		if (filter == null) {
