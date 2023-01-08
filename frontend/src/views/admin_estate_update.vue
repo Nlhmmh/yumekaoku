@@ -25,7 +25,7 @@
           </v-select>
         </v-col>
 
-        <v-col cols="8" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="initEstate.rentFee"
             type="number"
@@ -39,7 +39,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="8" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="initEstate.maintenanceFee"
             type="number"
@@ -50,7 +50,7 @@
 
           <!-- <v-switch v-model="isRentOut" inset></v-switch> -->
         </v-col>
-        <v-col cols="8" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="initEstate.size"
             type="number"
@@ -63,7 +63,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="initEstate.location"
             :counter="1000"

@@ -25,7 +25,7 @@
           </v-select>
         </v-col>
 
-        <v-col cols="8" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="rentFee"
             type="number"
@@ -39,7 +39,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="8" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="maintenanceFee"
             type="number"
@@ -50,7 +50,7 @@
 
           <!-- <v-switch v-model="isRentOut" inset></v-switch> -->
         </v-col>
-        <v-col cols="8" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="size"
             type="number"
@@ -63,7 +63,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="location"
             :counter="1000"
@@ -201,8 +201,6 @@ export default {
       errorAlert: false,
 
       loading: false,
-
-  
     };
   },
   async created() {
@@ -249,7 +247,7 @@ export default {
           this.video,
           this.video.type
         );
-        console.log('resVideo',resVideo);
+        console.log("resVideo", resVideo);
         if (resVideo.status === 200) {
           resVideoData = await resVideo.text();
         } else {
