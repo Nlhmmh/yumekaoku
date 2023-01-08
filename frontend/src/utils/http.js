@@ -1,12 +1,17 @@
 import constant from "./constant";
 
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 async function get(path, params) {
-    // let url = new URL(constant.LOCAL_API_URL + path);
-    // if (params !== null) {
-    //     url.search = new URLSearchParams(params);
-    // }
+    let url = constant.LOCAL_API_URL + path ;
+    console.log('par',params);
+    if (params !== undefined || params !==null) {
+       url= new URL(url);
+       url.search = new URLSearchParams(params);
+    }
     try {
-        const res = await fetch(constant.LOCAL_API_URL + path, {
+        const res = await fetch(url , {
             method: "GET",
         })
         return res;

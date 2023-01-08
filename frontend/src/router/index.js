@@ -15,6 +15,8 @@ import admin_estate_update from "../views/admin_estate_update.vue";
 import admin_users from "../views/admin_users.vue";
 import admin_appointments from "../views/admin_appointments.vue";
 import admin_profile from "../views/admin_profile.vue";
+import change_password from "../views/change_password.vue";
+import search_result from "../views/search_result.vue";
 
 Vue.use(VueRouter);
 
@@ -40,9 +42,19 @@ const routes = [
     component: profile,
   },
   {
+    path: "/change-password",
+    name: "change_password",
+    component: change_password,
+  },
+  {
     path: "/appointments",
     name: "appointments",
     component: appointments,
+  },
+  {
+    path: "/estates",
+    name: "search_result",
+    component: search_result,
   },
   {
     path: "/estates/:id",
@@ -78,6 +90,15 @@ const routes = [
     path: "/admin/estate/:id/update",
     name: "admin_estate_update",
     component: admin_estate_update,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/appointments",
+    name: "admin_appointments",
+    component: admin_appointments,
     meta: {
       requiresAuth: true,
       requiresAdmin: true,

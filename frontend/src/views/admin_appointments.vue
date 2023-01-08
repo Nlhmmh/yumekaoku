@@ -1,7 +1,9 @@
 <template></template>
 
 <script>
-export default {};
+export default {
+  name: "admin_appointments",
+};
 </script>
 
 <style></style>

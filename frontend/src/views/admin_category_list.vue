@@ -133,7 +133,7 @@ export default {
         { text: "Name", value: "name", sortable: true },
         { text: "Actions", value: "actions", sortable: false },
       ],
-      search: '2LDK',
+      search: "",
       categorylist: [],
       selectItem: {},
 
