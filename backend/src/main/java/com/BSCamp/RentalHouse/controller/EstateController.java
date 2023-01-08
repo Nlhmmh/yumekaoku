@@ -27,16 +27,26 @@ public class EstateController {
 
 	@Autowired
 	CategoryService categoryService;
-	
+
 	@Autowired
 	StorageService storageService;
 
 	@GetMapping("/estates")
-	public List<Estate> getEstates(@RequestParam(required = false) String search) {
-		if (search == null) {
-			return estateService.getAllByIsRentOutFalse();
+	public List<Estate> getEstates(@RequestParam(required = false) String search,
+			@RequestParam(required = false) Integer categoryId) {
+		if (categoryId != null) {
+			Category category = categoryService.get(categoryId);
+			if (search == null) {
+				return estateService.getAllByCategoryAndRentOutFalse(category);
+			}
+			return estateService.getByLocationAndCategoryAndRentOutFalse(search, category);
+
+		} else {
+			if (search == null) {
+				return estateService.getAllByIsRentOutFalse();
+			}
+			return estateService.getByLocationAndRentOutFalse(search);
 		}
-		return estateService.getByTitleOrLocation(search, search);
 	}
 
 	@GetMapping("/categories/{category_id}/estates")
@@ -59,24 +69,21 @@ public class EstateController {
 	}
 
 	@GetMapping("/media/{fileType}/{fileName}")
-	public ResponseEntity<?> getEstateImage(
-			@PathVariable("fileType") String fileType,
-			@PathVariable("fileName") String fileName
-	) throws IOException {
+	public ResponseEntity<?> getEstateImage(@PathVariable("fileType") String fileType,
+			@PathVariable("fileName") String fileName) throws IOException {
 		MediaType contentType = MediaType.IMAGE_PNG;
 		switch (fileType) {
-			case "mp4" :
-				contentType = MediaType.APPLICATION_OCTET_STREAM;
-				break;
-			case "jpg" :
-				contentType = MediaType.IMAGE_JPEG;
-				break;
-			case "png" :
-				contentType = MediaType.IMAGE_PNG;
-				break;
-			default :
-				return ResponseEntity.badRequest()
-						.body("Unsupported File Type");
+		case "mp4":
+			contentType = MediaType.APPLICATION_OCTET_STREAM;
+			break;
+		case "jpg":
+			contentType = MediaType.IMAGE_JPEG;
+			break;
+		case "png":
+			contentType = MediaType.IMAGE_PNG;
+			break;
+		default:
+			return ResponseEntity.badRequest().body("Unsupported File Type");
 		}
 		byte[] fileBytes = storageService.load(fileName);
 		if (fileBytes == null) {

@@ -70,12 +70,12 @@ public class RentalHouseApplication implements CommandLineRunner {
 					"MINATO-KU, TOKYO, in ROPPONGI", null, null, null, category7));
 			estateService.create(new Estate(8, "Setagaya-ku - Tokyo", "test", 95000, 5000, 44, false,
 					"Setagaya-ku - Tokyo", null, null, null, category4));
-
-			if (deleteFiles.equals("true")) {
-				storageService.clearAll();
-			}
+	
 		}
-
+		
+		if (deleteFiles.equals("true")) {
+			storageService.clearAll();
+		}
 	}
 
 }

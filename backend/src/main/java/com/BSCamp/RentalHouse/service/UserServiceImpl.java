@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	PasswordEncoder passwordEncoder;
-	
+
 	@Override
 	public User checkLoginUser(String email, String password) {
 		User user = userRepo.findByEmail(email);
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return userRepo.save(user);
 	}
-	
+
 	@Override
 	public List<User> getAll() {
 		return userRepo.findAll();
@@ -65,10 +65,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User update(int id, User user) {
 		User toUpdateUser = this.get(id);
-		if(toUpdateUser == null) {
+		if (toUpdateUser == null) {
 			return null;
 		}
 		toUpdateUser.setName(user.getName());
+		toUpdateUser.setEmail(user.getEmail());
 		toUpdateUser.setPhoneNumber(user.getPhoneNumber());
 		toUpdateUser.setUpdatedAt(LocalDateTime.now());
 		userRepo.save(toUpdateUser);
@@ -78,12 +79,21 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean delete(int id) {
 		User user = this.get(id);
-		if(user == null) {
+		if (user == null) {
 			return false;
 		}
 		userRepo.deleteById(id);
 		return true;
 	}
 
-	
+	@Override
+	public void updatePassword(int id, String newPassword) {
+		User toUpdateUser = this.get(id);
+		if (toUpdateUser != null) {
+			toUpdateUser.setPassword(passwordEncoder.encode(newPassword));
+			userRepo.save(toUpdateUser);
+			System.out.println("User password updated");
+		}
+	}
+
 }

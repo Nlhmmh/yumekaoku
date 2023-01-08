@@ -10,7 +10,15 @@ public interface EstateService {
 	
 	public List<Estate> getAllByCategory(Category category);
 	
-	public List<Estate> getByTitleOrLocation(String title, String location);
+	public List<Estate> getAllByCategoryAndRentOutFalse(Category category);
+	
+	public List<Estate> getByLocation(String location);
+	
+	public List<Estate> getByLocationAndCategory(String location, Category category);
+	
+	public List<Estate> getByLocationAndRentOutFalse( String location);
+	
+	public List<Estate> getByLocationAndCategoryAndRentOutFalse(String location, Category category);
 	
 	public List<Estate> getAllByIsRentOutFalse();
 	
