@@ -1,6 +1,17 @@
 <template>
-  <v-card class="mx-auto" max-width="300" height="400" @click="goToRoute(id)">
-    <v-img width="100%" v-if="imagePath" :src="apiURL + imagePath" height="200px"></v-img>
+  <v-card class="mx-auto" max-width="300" height="350" @click="goToRoute(id)">
+    <v-img
+      width="100%"
+      v-if="imagePath"
+      :src="apiURL + imagePath"
+      height="200px"
+    ></v-img>
+    <v-img
+      width="100%"
+      v-else
+      :src="require('/src/assets/default-estate.jpg')"
+      height="200px"
+    ></v-img>
 
     <v-card-title> {{ title }} </v-card-title>
 
@@ -11,7 +22,7 @@
         {{ category.name }}
       </v-chip>
       <v-spacer></v-spacer>
-      <div class="text-red">¥{{ rentFee }}</div>
+      <div style="color: green">¥{{ rentFee }}</div>
     </v-card-text>
   </v-card>
 </template>

@@ -1,20 +1,58 @@
 <template>
   <div>
     <!-- Advanced search form in landing page -->
-    <v-img
-      lazy-src="https://picsum.photos/id/11/10/6"
-      max-height="350"
-      max-width="100%"
-      src="https://picsum.photos/id/11/500/300"
-    ></v-img>
+    <div class="landing">
+      <!-- <v-img
+        max-height="350"
+        max-width="100%"
+        :src="require('/src/assets/landing-bg.jpg')"
+      ></v-img> -->
+      <div class="advanced-form">
+        <h2 style="color: white" class="my-2">
+          Find a home in Japan with Yumekaoku
+        </h2>
+
+        <div class="d-flex">
+          <v-text-field
+            style="width: 350px"
+            v-model="search"
+            solo
+            label="Search by location"
+            clearable
+            class="mx-1"
+          ></v-text-field>
+          <v-select
+            v-model="categoryId"
+            :items="categories"
+            label="Property Category"
+            item-text="name"
+            item-value="id"
+            solo
+            class="mx-1"
+          ></v-select>
+
+          <!-- :disabled="!search || categoryId === 0" -->
+          <v-btn
+            color="success"
+            class="mx-1"
+            large
+            @click="onSearch()"
+            style="height: 46px"
+          >
+            Search
+            <v-icon right> mdi-search </v-icon>
+          </v-btn>
+        </div>
+      </div>
+    </div>
 
     <!-- Featured homes section -->
     <section_wrapper
       title="Featured Homes"
       subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
     >
-      <v-row dense>
-        <v-col v-for="estate in estates" :key="estate.id">
+      <v-row dense style="padding: 0 50px">
+        <v-col v-for="estate in estates" :key="estate.id" cols="3">
           <estate_card
             :id="estate.id"
             :title="estate.title"
@@ -23,15 +61,16 @@
             :category="estate.category"
             :imagePath="estate.imagePath"
           ></estate_card>
-        </v-col> </v-row
-    ></section_wrapper>
+        </v-col>
+      </v-row>
+    </section_wrapper>
 
     <!-- Home Categories Section -->
     <section_wrapper
       title="Categories"
       subtitle="A collection of properties carefully chosen organized by category."
     >
-      <v-row dense class="my-5">
+      <v-row class="my-5" dense>
         <v-col v-for="cat in categories" :key="cat.id" :cols="4">
           <v-card @click="onRouteChange(cat.id)">
             <v-img
@@ -59,6 +98,8 @@ export default {
   components: { section_wrapper, estate_card },
 
   data: () => ({
+    search: null,
+    categoryId: 0,
     estates: [],
     categories: [],
     cards: [
@@ -128,6 +169,33 @@ export default {
     onRouteChange(id) {
       this.$router.push({ path: `/categories/${id}/estates` });
     },
+
+    onSearch() {
+      this.$router.push({
+        path: "/estates",
+        query: { search: this.search, categoryId: this.categoryId },
+      });
+    },
   },
 };
 </script>
+
+
+<style scoped>
+.landing {
+  width: 100%;
+  height: 70vh;
+  background: url("/src/assets/landing-bg.jpg") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.advanced-form {
+  width: 700px;
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(247, 246, 246, 0.5);
+
+}
+</style>

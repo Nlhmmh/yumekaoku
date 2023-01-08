@@ -1,14 +1,15 @@
 <template>
   <div>
-    <v-container>
-      <!-- Login Form -->
+    <!-- <v-container> -->
+    <v-card width="500px" class="pa-5 my-5" style="margin: 0 auto">
+      <h2 class="text-center my-5">Login Form</h2>
       <v-form ref="loginForm" v-model="loginForm">
         <!-- Email -->
         <v-text-field
           v-model="email"
           :rules="[
             (v) => !!v || 'Required',
-            (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            (v) => (v && /.+@.+\..+/.test(v)) || 'E-mail must be valid',
           ]"
           label="E-mail"
           required
@@ -33,9 +34,10 @@
 
         <!-- Login Btn -->
         <v-btn
+          width="100%"
           :disabled="!loginForm"
           color="success"
-          class="mr-4"
+          class="mr-4 my-5"
           @click="login()"
         >
           <span v-if="!loading">Login</span>
@@ -52,12 +54,13 @@
           Email or Password is wrong!
         </v-alert>
       </v-form>
-    </v-container>
+    </v-card>
+    <!-- </v-container> -->
   </div>
 </template>
 
 <script>
-// import utils from "../utils/utils";
+import utils from "../utils/utils";
 
 export default {
   name: "login",
@@ -70,8 +73,6 @@ export default {
       email: "",
       password: "",
       passwordShow: false,
-      // email: "admin@gmail.com",
-      // password: "1111",
       errorAlert: false,
       loading: false,
     };
@@ -79,28 +80,39 @@ export default {
   methods: {
     async login() {
       if (this.$refs.loginForm.validate()) {
-        // TODO : Call API
+        this.errorAlert = false;
+        try {
+          this.loading = true;
 
-        // Store in Vuex
-        let dummyLoginUser = {
-          email: this.email,
-          // TODO : Data must be from API... Added as manual for Testing
-          name: "tester",
-          phoneNo: "08099992222",
-          role: "user",
-          status: "active",
-        };
-        this.$store.commit("setLoginUser", dummyLoginUser);
-
-        if (dummyLoginUser.role === "admin") {
-          // Go to admin Screen
-          this.$router.push({ path: "/admin/estates" });
-        } else {
-          // Go to home Screen
-          this.$router.push({ path: "/" });
+          const res = await utils.http.post("/api/user/login", {
+            email: this.email,
+            password: this.password,
+          });
+          if (res && res.status === 200) {
+            const data = await res.json();
+            if (data) {
+              // Store Login Info in Vuex
+              this.$store.commit("setLoginUser", data);
+              // If Admin -> Go to Admin estates page
+              if (data.role == "admin") {
+                this.$router.push({ path: "/admin/estates" });
+              } else {
+                // If User -> Go to Home
+                this.$router.push({ path: "/" });
+              }
+            }
+          } else {
+            this.errorAlert = true;
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          this.loading = false;
         }
       }
     },
   },
 };
 </script>
+
+

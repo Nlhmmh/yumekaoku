@@ -6,7 +6,7 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search"
+        label="Search By Location"
         single-line
         hide-details
       ></v-text-field>
@@ -15,12 +15,7 @@
         Add
       </v-btn>
     </v-card-title>
-    <v-data-table
-      :headers="headers"
-      :items="estatelist"
-      :items-per-page="10"
-      :search="search"
-    >
+    <v-data-table :headers="headers" :items="estatelist" :items-per-page="10">
       <template v-slot:item.imagePath="{ item }">
         <v-img
           v-if="item.imagePath"
@@ -29,13 +24,31 @@
           height="100"
           contain
         ></v-img>
+        <v-img
+          v-else
+          :src="require('/src/assets/default-estate.jpg')"
+          width="100"
+          height="100"
+          contain
+        ></v-img>
       </template>
 
       <template v-slot:item.rentOut="{ item }">
-        <v-switch v-model="item.rentOut" inset></v-switch>
+        <v-switch v-model="item.rentOut"></v-switch>
       </template>
 
       <template v-slot:item.actions="{ item }">
+        <!-- go to detail -->
+        <v-btn
+          class="mr-3"
+          color="success"
+          fab
+          x-small
+          dark
+          @click="onDetailClick(item.id)"
+        >
+          <v-icon>mdi-dots-horizontal</v-icon>
+        </v-btn>
         <!-- Edit Estate -->
         <v-btn
           class="mr-3"
@@ -71,7 +84,7 @@
 </template>
 
 <script>
-import utils from '@/utils/utils';
+import utils from "@/utils/utils";
 
 export default {
   name: "admin_estate_list",
@@ -102,7 +115,14 @@ export default {
 
   methods: {
     async fetchEstates() {
-      const res = await utils.http.get("/api/admin/estates", { search: this.search });
+      const res = await utils.http.get(
+        "/api/admin/estates",
+        this.search
+          ? {
+              search: this.search,
+            }
+          : null
+      );
       if (res && res.status === 200) {
         const data = await res.json();
         if (data) {
@@ -127,6 +147,9 @@ export default {
     onClickDeleteBtn(item) {
       this.deleteDialog = true;
       this.selectItem = item;
+    },
+    onDetailClick(id) {
+      this.$router.push({ path: `/estates/${id}` });
     },
   },
 };
