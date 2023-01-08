@@ -1,460 +1,195 @@
-2022-12-31 00:33:31.209  INFO 13652 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2022-12-31 00:33:31.459  INFO 13652 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-12-31 00:33:31.474  INFO 13652 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2022-12-31 00:33:31.591  WARN 13652 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [logback-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.5/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.5/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463)
- java.base@17.0.5/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434)
- java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
- java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
-2022-12-31 00:33:31.592  WARN 13652 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [logback-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base@17.0.5/jdk.internal.misc.Unsafe.park(Native Method)
- java.base@17.0.5/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
- java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
- java.base@17.0.5/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463)
- java.base@17.0.5/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434)
- java.base@17.0.5/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
- java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1170)
- java.base@17.0.5/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
- java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
- java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
- java.base@17.0.5/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
- java.base@17.0.5/java.lang.Thread.run(Thread.java:833)
-2022-12-31 00:33:31.700  INFO 13652 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 00:33:31.769  INFO 13652 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-12-31 00:33:31.776  INFO 13652 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2022-12-31 00:33:32.940  INFO 13652 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 13652 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
-2022-12-31 00:33:32.940  INFO 13652 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-31 00:33:34.149  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 00:33:34.150  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-12-31 00:33:34.178  INFO 13652 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 00:33:34.180  INFO 13652 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 00:33:34.182  INFO 13652 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 00:33:34.182  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 0 JDBC repository interfaces.
-2022-12-31 00:33:34.185  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 00:33:34.185  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-31 00:33:34.194  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
-2022-12-31 00:33:35.025  INFO 13652 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-31 00:33:35.026  INFO 13652 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-31 00:33:35.026  INFO 13652 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-2022-12-31 00:33:35.239  INFO 13652 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-31 00:33:35.239  INFO 13652 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2295 ms
-2022-12-31 00:33:35.265  INFO 13652 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-31 00:33:35.271  INFO 13652 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2022-12-31 00:33:35.295  INFO 13652 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2022-12-31 00:33:35.295  INFO 13652 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-31 00:33:38.553  INFO 13652 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-31 00:33:38.554  INFO 13652 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 00:33:38.698  WARN 13652 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-31 00:33:38.758  WARN 13652 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2023-01-08 20:47:19.198  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 13028 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
+2023-01-08 20:47:19.199  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-01-08 20:47:19.253  INFO 13028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-08 20:47:19.253  INFO 13028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-08 20:47:20.005  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08 20:47:20.007  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-08 20:47:20.041  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:47:20.042  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:47:20.044  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:47:20.046  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 JDBC repository interfaces.
+2023-01-08 20:47:20.056  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08 20:47:20.057  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-08 20:47:20.098  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
+2023-01-08 20:47:23.087  INFO 13028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-08 20:47:23.096  INFO 13028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 20:47:23.096  INFO 13028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-08 20:47:23.167  INFO 13028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 20:47:23.167  INFO 13028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3913 ms
+2023-01-08 20:47:23.346  INFO 13028 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-08 20:47:23.389  INFO 13028 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-08 20:47:23.574  INFO 13028 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-08 20:47:23.666  INFO 13028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-08 20:47:23.833  INFO 13028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-08 20:47:23.849  INFO 13028 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-01-08 20:47:25.521  INFO 13028 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-08 20:47:25.543  INFO 13028 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-08 20:47:26.077  WARN 13028 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-08 20:47:26.264  WARN 13028 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 44feec7f-8570-4e41-834c-a35d48e7a8e5
+Using generated security password: d556f620-6039-4358-bc0b-97dbfc3d67c6
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-31 00:33:38.780 DEBUG 13652 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
-2022-12-31 00:33:38.804 DEBUG 13652 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2022-12-31 00:33:38.806  WARN 13652 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 00:33:38.806  INFO 13652 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
-2022-12-31 00:33:38.806  WARN 13652 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 00:33:38.806  INFO 13652 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
-2022-12-31 00:33:38.807  WARN 13652 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 00:33:38.807  INFO 13652 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
-2022-12-31 00:33:38.813  INFO 13652 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14e5c4c2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7620b61b, org.springframework.security.web.context.SecurityContextPersistenceFilter@623d249e, org.springframework.security.web.header.HeaderWriterFilter@7e96754d, org.springframework.security.web.authentication.logout.LogoutFilter@7952d5dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@595956a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14286cdb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f9602ef, org.springframework.security.web.session.SessionManagementFilter@2879cef7, org.springframework.security.web.access.ExceptionTranslationFilter@10d57148, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4939750b]
-2022-12-31 00:33:38.836 DEBUG 13652 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2022-12-31 00:33:38.842 DEBUG 13652 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2022-12-31 00:33:38.948  INFO 13652 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-31 00:33:38.951  INFO 13652 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 6.285 seconds (JVM running for 6707.186)
-2022-12-31 00:33:40.537  INFO 13652 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-12-31 00:33:53.944  INFO 3512 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 3512 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
-2022-12-31 00:33:53.945  INFO 3512 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-31 00:33:54.061  INFO 3512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-31 00:33:54.061  INFO 3512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-31 00:33:55.023  INFO 3512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 00:33:55.026  INFO 3512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-12-31 00:33:55.072  INFO 3512 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 00:33:55.074  INFO 3512 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 00:33:55.077  INFO 3512 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 00:33:55.077  INFO 3512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 0 JDBC repository interfaces.
-2022-12-31 00:33:55.085  INFO 3512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 00:33:55.086  INFO 3512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-31 00:33:55.130  INFO 3512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 3 JPA repository interfaces.
-2022-12-31 00:33:59.088  INFO 3512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-31 00:33:59.130  INFO 3512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-31 00:33:59.131  INFO 3512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-2022-12-31 00:33:59.254  INFO 3512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-31 00:33:59.254  INFO 3512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5192 ms
-2022-12-31 00:33:59.693  INFO 3512 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-31 00:33:59.778  INFO 3512 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
-2022-12-31 00:34:00.040  INFO 3512 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-31 00:34:00.497  INFO 3512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-31 00:34:00.845  INFO 3512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-31 00:34:00.880  INFO 3512 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-31 00:34:04.537  INFO 3512 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-31 00:34:04.554  INFO 3512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 00:34:05.116  WARN 3512 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-31 00:34:05.280  WARN 3512 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2023-01-08 20:47:26.521 DEBUG 13028 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 27 mappings in 'requestMappingHandlerMapping'
+2023-01-08 20:47:26.628 DEBUG 13028 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-01-08 20:47:26.636  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:47:26.637  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2023-01-08 20:47:26.638  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:47:26.638  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
+2023-01-08 20:47:26.638  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:47:26.638  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-01-08 20:47:26.707  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@31b02789, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5069660d, org.springframework.security.web.context.SecurityContextPersistenceFilter@3766e4e2, org.springframework.security.web.header.HeaderWriterFilter@161ca6f7, org.springframework.security.web.authentication.logout.LogoutFilter@5dcab4be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@204e344d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a961f09, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ae611e1, org.springframework.security.web.session.SessionManagementFilter@782a89d, org.springframework.security.web.access.ExceptionTranslationFilter@2c63d5d9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@51ed1400]
+2023-01-08 20:47:26.770 DEBUG 13028 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-01-08 20:47:26.812 DEBUG 13028 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-01-08 20:47:27.102  INFO 13028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-08 20:47:27.111  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 8.363 seconds (JVM running for 9.116)
+2023-01-08 20:47:59.889  INFO 13028 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-01-08 20:47:59.938  INFO 13028 --- [Thread-1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-08 20:47:59.953  INFO 13028 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-08 20:47:59.960  INFO 13028 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-01-08 20:48:00.034  INFO 13028 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-01-08 20:48:00.095  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 13028 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
+2023-01-08 20:48:00.095  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-01-08 20:48:00.253  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08 20:48:00.253  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-08 20:48:00.262  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:48:00.264  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:48:00.267  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:48:00.268  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2023-01-08 20:48:00.271  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08 20:48:00.271  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-08 20:48:00.283  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 3 JPA repository interfaces.
+2023-01-08 20:48:00.367  INFO 13028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-08 20:48:00.368  INFO 13028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 20:48:00.368  INFO 13028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-08 20:48:00.387  INFO 13028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 20:48:00.387  INFO 13028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 290 ms
+2023-01-08 20:48:00.420  INFO 13028 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-08 20:48:00.425  INFO 13028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-01-08 20:48:00.467  INFO 13028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-01-08 20:48:00.468  INFO 13028 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-01-08 20:48:00.757  INFO 13028 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-08 20:48:00.757  INFO 13028 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-08 20:48:00.812  WARN 13028 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-08 20:48:00.879  WARN 13028 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 73dfe860-ad5f-4d47-bea3-209984201820
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-31 00:34:05.475 DEBUG 3512 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
-2022-12-31 00:34:05.581 DEBUG 3512 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2022-12-31 00:34:05.589  WARN 3512 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 00:34:05.590  INFO 3512 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
-2022-12-31 00:34:05.591  WARN 3512 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 00:34:05.591  INFO 3512 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
-2022-12-31 00:34:05.591  WARN 3512 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 00:34:05.591  INFO 3512 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
-2022-12-31 00:34:05.641  INFO 3512 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5092c2e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f4cb038, org.springframework.security.web.context.SecurityContextPersistenceFilter@52816b71, org.springframework.security.web.header.HeaderWriterFilter@5e3f4c51, org.springframework.security.web.authentication.logout.LogoutFilter@2f3f907d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49a3bb00, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6808227, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15cd425c, org.springframework.security.web.session.SessionManagementFilter@451c3642, org.springframework.security.web.access.ExceptionTranslationFilter@1c019544, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d8c330]
-2022-12-31 00:34:05.721 DEBUG 3512 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2022-12-31 00:34:05.761 DEBUG 3512 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2022-12-31 00:34:05.957  WARN 3512 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-2022-12-31 00:34:05.960  INFO 3512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 00:34:05.963  INFO 3512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-31 00:34:05.981  INFO 3512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-31 00:34:05.985  INFO 3512 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-12-31 00:34:05.998  INFO 3512 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-12-31 00:34:06.050 ERROR 3512 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2022-12-31 01:12:39.770  INFO 14460 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 14460 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
-2022-12-31 01:12:39.771  INFO 14460 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-31 01:12:39.833  INFO 14460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-31 01:12:39.833  INFO 14460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-31 01:12:40.545  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 01:12:40.547  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-12-31 01:12:40.582  INFO 14460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 01:12:40.584  INFO 14460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 01:12:40.586  INFO 14460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 01:12:40.587  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 0 JDBC repository interfaces.
-2022-12-31 01:12:40.596  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 01:12:40.597  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-31 01:12:40.635  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 3 JPA repository interfaces.
-2022-12-31 01:12:41.377  INFO 14460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-31 01:12:41.390  INFO 14460 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-31 01:12:41.391  INFO 14460 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-2022-12-31 01:12:41.465  INFO 14460 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-31 01:12:41.465  INFO 14460 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1631 ms
-2022-12-31 01:12:41.619  INFO 14460 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-31 01:12:41.665  INFO 14460 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
-2022-12-31 01:12:41.828  INFO 14460 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-31 01:12:41.954  INFO 14460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-31 01:12:42.113  INFO 14460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-31 01:12:42.134  INFO 14460 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-31 01:12:42.736  WARN 14460 --- [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table estate drop foreign key FKrxlqp1vb8nxgjof1gxdp5ewv8" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table estate drop foreign key FKrxlqp1vb8nxgjof1gxdp5ewv8" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.24.jar:5.3.24]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.24.jar:5.3.24]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.24.jar:5.3.24]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.24.jar:5.3.24]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.24.jar:5.3.24]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.24.jar:5.3.24]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
-	at com.BSCamp.RentalHouse.RentalHouseApplication.main(RentalHouseApplication.java:40) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'rental_house.estate' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
-	... 40 common frames omitted
-
-2022-12-31 01:12:44.245  INFO 14460 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-31 01:12:44.253  INFO 14460 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 01:12:44.696  WARN 14460 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-31 01:12:44.832  WARN 14460 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 19b7015a-1284-4a7d-af30-fafcabc45f29
+Using generated security password: d97d333a-16f0-4118-852e-15fadb9010c5
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-31 01:12:44.982 DEBUG 14460 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
-2022-12-31 01:12:45.063 DEBUG 14460 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2022-12-31 01:12:45.071  WARN 14460 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 01:12:45.072  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
-2022-12-31 01:12:45.072  WARN 14460 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 01:12:45.072  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
-2022-12-31 01:12:45.072  WARN 14460 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 01:12:45.073  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
-2022-12-31 01:12:45.124  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b99604a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b2d6a0c, org.springframework.security.web.context.SecurityContextPersistenceFilter@4aeac24c, org.springframework.security.web.header.HeaderWriterFilter@7f0be3d7, org.springframework.security.web.authentication.logout.LogoutFilter@500482ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a4b1613, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e946926, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7619c0f1, org.springframework.security.web.session.SessionManagementFilter@69954d30, org.springframework.security.web.access.ExceptionTranslationFilter@75b7d347, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@55db104b]
-2022-12-31 01:12:45.204 DEBUG 14460 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2022-12-31 01:12:45.245 DEBUG 14460 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2022-12-31 01:12:45.481  INFO 14460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-31 01:12:45.489  INFO 14460 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 6.13 seconds (JVM running for 6.627)
-2022-12-31 01:13:33.237  INFO 14460 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2022-12-31 01:13:33.281  INFO 14460 --- [Thread-1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-12-31 01:13:33.295  INFO 14460 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 01:13:33.299  INFO 14460 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-31 01:13:33.309  INFO 14460 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-31 01:13:33.388  INFO 14460 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 14460 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
-2022-12-31 01:13:33.388  INFO 14460 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-31 01:13:33.562  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 01:13:33.563  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2022-12-31 01:13:33.570  INFO 14460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 01:13:33.571  INFO 14460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 01:13:33.573  INFO 14460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2022-12-31 01:13:33.573  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
-2022-12-31 01:13:33.577  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2022-12-31 01:13:33.578  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-31 01:13:33.589  INFO 14460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 3 JPA repository interfaces.
-2022-12-31 01:13:33.687  INFO 14460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-31 01:13:33.688  INFO 14460 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-31 01:13:33.688  INFO 14460 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-2022-12-31 01:13:33.730  INFO 14460 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-31 01:13:33.730  INFO 14460 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 339 ms
-2022-12-31 01:13:33.766  INFO 14460 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-31 01:13:33.772  INFO 14460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2022-12-31 01:13:33.777  INFO 14460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2022-12-31 01:13:33.777  INFO 14460 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-31 01:13:33.906  INFO 14460 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-31 01:13:33.906  INFO 14460 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-31 01:13:33.977  WARN 14460 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-31 01:13:34.083  WARN 14460 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2023-01-08 20:48:00.895 DEBUG 13028 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 27 mappings in 'requestMappingHandlerMapping'
+2023-01-08 20:48:00.916 DEBUG 13028 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-01-08 20:48:00.917  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:48:00.917  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2023-01-08 20:48:00.917  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:48:00.917  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
+2023-01-08 20:48:00.917  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:48:00.917  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-01-08 20:48:00.920  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c70f157, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41f34f3d, org.springframework.security.web.context.SecurityContextPersistenceFilter@77af23f4, org.springframework.security.web.header.HeaderWriterFilter@6315d9d0, org.springframework.security.web.authentication.logout.LogoutFilter@4e253784, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3efe6c0f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73e8f959, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5fc64607, org.springframework.security.web.session.SessionManagementFilter@695b437f, org.springframework.security.web.access.ExceptionTranslationFilter@7a9661d7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e98eb06]
+2023-01-08 20:48:00.932 DEBUG 13028 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-01-08 20:48:00.937 DEBUG 13028 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-01-08 20:48:00.971  INFO 13028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-08 20:48:00.974  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 0.905 seconds (JVM running for 42.98)
+2023-01-08 20:48:00.977  INFO 13028 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-01-08 20:48:04.461  INFO 13028 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-01-08 20:48:04.490  INFO 13028 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-08 20:48:04.496  INFO 13028 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-08 20:48:04.497  INFO 13028 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-01-08 20:48:04.499  INFO 13028 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-01-08 20:48:04.566  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 13028 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
+2023-01-08 20:48:04.566  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-01-08 20:48:04.730  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08 20:48:04.730  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-08 20:48:04.736  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:48:04.739  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:48:04.740  INFO 13028 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-08 20:48:04.741  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+2023-01-08 20:48:04.745  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-08 20:48:04.746  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-08 20:48:04.755  INFO 13028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
+2023-01-08 20:48:04.827  INFO 13028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-08 20:48:04.828  INFO 13028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-08 20:48:04.828  INFO 13028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-08 20:48:04.853  INFO 13028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-08 20:48:04.854  INFO 13028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 286 ms
+2023-01-08 20:48:04.883  INFO 13028 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-08 20:48:04.887  INFO 13028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-01-08 20:48:04.892  INFO 13028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-01-08 20:48:04.893  INFO 13028 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-01-08 20:48:05.203  INFO 13028 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-08 20:48:05.204  INFO 13028 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-08 20:48:05.268  WARN 13028 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-08 20:48:05.332  WARN 13028 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 8056c144-9c51-4729-a690-9561cf163727
+Using generated security password: 2fcb5a83-6afa-4ca8-985e-b5fe3678727b
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-31 01:13:34.115 DEBUG 14460 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
-2022-12-31 01:13:34.163 DEBUG 14460 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2022-12-31 01:13:34.165  WARN 14460 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 01:13:34.166  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
-2022-12-31 01:13:34.166  WARN 14460 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 01:13:34.166  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
-2022-12-31 01:13:34.166  WARN 14460 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2022-12-31 01:13:34.166  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
-2022-12-31 01:13:34.172  INFO 14460 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@194f92be, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@535b34e3, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f78df65, org.springframework.security.web.header.HeaderWriterFilter@4c308166, org.springframework.security.web.authentication.logout.LogoutFilter@74ec1d97, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72a4638a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a57e709, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@289d8678, org.springframework.security.web.session.SessionManagementFilter@66c2268a, org.springframework.security.web.access.ExceptionTranslationFilter@1e427262, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@439fe48c]
-2022-12-31 01:13:34.200 DEBUG 14460 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2022-12-31 01:13:34.209 DEBUG 14460 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2022-12-31 01:13:34.263  INFO 14460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-31 01:13:34.268  INFO 14460 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 0.912 seconds (JVM running for 55.406)
-2022-12-31 01:13:34.271  INFO 14460 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-12-31 01:16:48.859  INFO 14460 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-31 01:16:48.859  INFO 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-31 01:16:48.859 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2022-12-31 01:16:48.859 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2022-12-31 01:16:48.859 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2022-12-31 01:16:48.860 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6ac1b5c3
-2022-12-31 01:16:48.860 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4f7cb0a9
-2022-12-31 01:16:48.860 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2022-12-31 01:16:48.860  INFO 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-31 01:16:48.879 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:16:48.888 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:16:48.889 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:16:48.966 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:16:48.967 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@5cc7a1fc, com.BSCamp.RentalHouse.entity.Estate@578cc6b6, com.B (truncated)...]
-2022-12-31 01:16:49.031 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:16:49.056 DEBUG 14460 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:16:49.057 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:16:49.058 DEBUG 14460 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:16:49.073 DEBUG 14460 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:16:49.073 DEBUG 14460 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@3271c0e1, com.BSCamp.RentalHouse.entity.Category@12584ff4, c (truncated)...]
-2022-12-31 01:16:49.075 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:09.370 DEBUG 14460 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstatesByCategory(int)
-2022-12-31 01:17:09.371 DEBUG 14460 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/categories/2/estates", parameters={}
-2022-12-31 01:17:09.372 DEBUG 14460 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstatesByCategory(int)
-2022-12-31 01:17:09.392 DEBUG 14460 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:09.393 DEBUG 14460 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.BSCamp.RentalHouse.entity.Estate@53176f4c]]
-2022-12-31 01:17:09.395 DEBUG 14460 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:11.396 DEBUG 14460 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:11.398 DEBUG 14460 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:17:11.398 DEBUG 14460 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:11.415 DEBUG 14460 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:11.415 DEBUG 14460 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@86a057a, com.BSCamp.RentalHouse.entity.Estate@4d688a13, com.BS (truncated)...]
-2022-12-31 01:17:11.418 DEBUG 14460 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:11.441 DEBUG 14460 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:11.443 DEBUG 14460 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:17:11.444 DEBUG 14460 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:11.453 DEBUG 14460 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:11.454 DEBUG 14460 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@6e7c3545, com.BSCamp.RentalHouse.entity.Category@79c4b281, c (truncated)...]
-2022-12-31 01:17:11.456 DEBUG 14460 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:14.259 DEBUG 14460 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:14.260 DEBUG 14460 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:17:14.260 DEBUG 14460 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:14.273 DEBUG 14460 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:14.274 DEBUG 14460 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@5c4f168b, com.BSCamp.RentalHouse.entity.Estate@194d9366, com.B (truncated)...]
-2022-12-31 01:17:14.279 DEBUG 14460 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:14.357 DEBUG 14460 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:14.360 DEBUG 14460 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:17:14.360 DEBUG 14460 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:14.368 DEBUG 14460 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:14.368 DEBUG 14460 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@4499bbcd, com.BSCamp.RentalHouse.entity.Category@5095648a, c (truncated)...]
-2022-12-31 01:17:14.371 DEBUG 14460 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:20.524 DEBUG 14460 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:20.525 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:17:20.525 DEBUG 14460 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:20.541 DEBUG 14460 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:20.541 DEBUG 14460 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@7239ae55, com.BSCamp.RentalHouse.entity.Estate@373b3e76, com.B (truncated)...]
-2022-12-31 01:17:20.546 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:20.578 DEBUG 14460 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:20.579 DEBUG 14460 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:17:20.579 DEBUG 14460 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:20.587 DEBUG 14460 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:20.587 DEBUG 14460 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@659d88cd, com.BSCamp.RentalHouse.entity.Category@7425948d, c (truncated)...]
-2022-12-31 01:17:20.590 DEBUG 14460 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:27.799 DEBUG 14460 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:27.800 DEBUG 14460 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:17:27.800 DEBUG 14460 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:27.810 DEBUG 14460 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:27.811 DEBUG 14460 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@3fe617d8, com.BSCamp.RentalHouse.entity.Estate@7ae48e40, com.B (truncated)...]
-2022-12-31 01:17:27.814 DEBUG 14460 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:27.832 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:27.832 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:17:27.832 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:27.841 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:27.842 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@13913a92, com.BSCamp.RentalHouse.entity.Category@5588de67, c (truncated)...]
-2022-12-31 01:17:27.843 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:39.381 DEBUG 14460 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstatesByCategory(int)
-2022-12-31 01:17:39.382 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/categories/3/estates", parameters={}
-2022-12-31 01:17:39.383 DEBUG 14460 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstatesByCategory(int)
-2022-12-31 01:17:39.394 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:39.394 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.BSCamp.RentalHouse.entity.Estate@7fc9401]]
-2022-12-31 01:17:39.396 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:41.482 DEBUG 14460 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:41.483 DEBUG 14460 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:17:41.484 DEBUG 14460 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:17:41.497 DEBUG 14460 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:41.497 DEBUG 14460 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@2e943ab9, com.BSCamp.RentalHouse.entity.Estate@16e1ee5e, com.B (truncated)...]
-2022-12-31 01:17:41.498 DEBUG 14460 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:17:41.518 DEBUG 14460 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:41.518 DEBUG 14460 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:17:41.519 DEBUG 14460 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:17:41.525 DEBUG 14460 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:17:41.525 DEBUG 14460 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@32800013, com.BSCamp.RentalHouse.entity.Category@610bcb45, c (truncated)...]
-2022-12-31 01:17:41.527 DEBUG 14460 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:19:32.241 DEBUG 14460 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:19:32.242 DEBUG 14460 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:19:32.242 DEBUG 14460 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:19:32.252 DEBUG 14460 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:19:32.253 DEBUG 14460 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@7afc8e06, com.BSCamp.RentalHouse.entity.Estate@577c35ea, com.B (truncated)...]
-2022-12-31 01:19:32.254 DEBUG 14460 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:19:32.279 DEBUG 14460 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:19:32.280 DEBUG 14460 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:19:32.280 DEBUG 14460 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:19:32.285 DEBUG 14460 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:19:32.286 DEBUG 14460 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@c173cbc, com.BSCamp.RentalHouse.entity.Category@69709461, co (truncated)...]
-2022-12-31 01:19:32.287 DEBUG 14460 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:19:33.321 DEBUG 14460 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getEstate(int)
-2022-12-31 01:19:33.322 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/admin/estates/9", parameters={}
-2022-12-31 01:19:33.324 DEBUG 14460 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getEstate(int)
-2022-12-31 01:19:33.333 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:19:33.334 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.BSCamp.RentalHouse.entity.Estate@15fc8698]
-2022-12-31 01:19:33.338 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:19:37.066 DEBUG 14460 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:19:37.067 DEBUG 14460 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:19:37.068 DEBUG 14460 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:19:37.085 DEBUG 14460 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:19:37.085 DEBUG 14460 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@4c085c9, com.BSCamp.RentalHouse.entity.Estate@751e29, com.BSCa (truncated)...]
-2022-12-31 01:19:37.087 DEBUG 14460 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:19:37.112 DEBUG 14460 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:19:37.113 DEBUG 14460 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:19:37.113 DEBUG 14460 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:19:37.117 DEBUG 14460 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:19:37.118 DEBUG 14460 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@1e5ce6e0, com.BSCamp.RentalHouse.entity.Category@2b80386d, c (truncated)...]
-2022-12-31 01:19:37.119 DEBUG 14460 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:20:00.428 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:20:00.429 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:20:00.429 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:20:00.441 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:20:00.442 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@5689b83f, com.BSCamp.RentalHouse.entity.Estate@293128b0, com.B (truncated)...]
-2022-12-31 01:20:00.444 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:20:00.471 DEBUG 14460 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:20:00.472 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:20:00.472 DEBUG 14460 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:20:00.479 DEBUG 14460 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:20:00.479 DEBUG 14460 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@17dbd0e6, com.BSCamp.RentalHouse.entity.Category@3a48c38c, c (truncated)...]
-2022-12-31 01:20:00.481 DEBUG 14460 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:23:51.108 DEBUG 14460 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:23:51.109 DEBUG 14460 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:23:51.109 DEBUG 14460 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:23:51.120 DEBUG 14460 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:23:51.120 DEBUG 14460 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@38bf5711, com.BSCamp.RentalHouse.entity.Estate@779cfac4, com.B (truncated)...]
-2022-12-31 01:23:51.123 DEBUG 14460 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:23:51.187 DEBUG 14460 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:23:51.187 DEBUG 14460 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:23:51.187 DEBUG 14460 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:23:51.196 DEBUG 14460 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:23:51.197 DEBUG 14460 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@1fdf2096, com.BSCamp.RentalHouse.entity.Category@746bde6e, c (truncated)...]
-2022-12-31 01:23:51.199 DEBUG 14460 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:25:05.785 DEBUG 14460 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:25:05.787 DEBUG 14460 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:25:05.787 DEBUG 14460 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:25:05.802 DEBUG 14460 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:25:05.802 DEBUG 14460 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@2bb43371, com.BSCamp.RentalHouse.entity.Estate@57b5e8d0, com.B (truncated)...]
-2022-12-31 01:25:05.803 DEBUG 14460 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:25:05.823 DEBUG 14460 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:25:05.825 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:25:05.826 DEBUG 14460 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:25:05.834 DEBUG 14460 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:25:05.834 DEBUG 14460 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@28a0eb3b, com.BSCamp.RentalHouse.entity.Category@4786ebc9, c (truncated)...]
-2022-12-31 01:25:05.836 DEBUG 14460 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:26:08.361 DEBUG 14460 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:26:08.362 DEBUG 14460 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/estates", parameters={}
-2022-12-31 01:26:08.362 DEBUG 14460 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstates(String)
-2022-12-31 01:26:08.371 DEBUG 14460 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:26:08.371 DEBUG 14460 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@3fdb259d, com.BSCamp.RentalHouse.entity.Estate@2f4ffd9b, com.B (truncated)...]
-2022-12-31 01:26:08.373 DEBUG 14460 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2022-12-31 01:26:08.433 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:26:08.434 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
-2022-12-31 01:26:08.434 DEBUG 14460 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
-2022-12-31 01:26:08.442 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2022-12-31 01:26:08.442 DEBUG 14460 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@1d740ef, com.BSCamp.RentalHouse.entity.Category@160759eb, co (truncated)...]
-2022-12-31 01:26:08.445 DEBUG 14460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:48:05.348 DEBUG 13028 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 27 mappings in 'requestMappingHandlerMapping'
+2023-01-08 20:48:05.368 DEBUG 13028 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-01-08 20:48:05.370  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:48:05.371  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2023-01-08 20:48:05.371  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:48:05.371  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
+2023-01-08 20:48:05.371  WARN 13028 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-08 20:48:05.371  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-01-08 20:48:05.374  INFO 13028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5f0451fb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22a9405f, org.springframework.security.web.context.SecurityContextPersistenceFilter@62ff28a2, org.springframework.security.web.header.HeaderWriterFilter@3b333e0, org.springframework.security.web.authentication.logout.LogoutFilter@430ca5ae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1722fcc7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d14e1f0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46e18512, org.springframework.security.web.session.SessionManagementFilter@20aea853, org.springframework.security.web.access.ExceptionTranslationFilter@24aa204a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@78a32134]
+2023-01-08 20:48:05.387 DEBUG 13028 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-01-08 20:48:05.391 DEBUG 13028 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-01-08 20:48:05.578  INFO 13028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-08 20:48:05.581  INFO 13028 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 1.04 seconds (JVM running for 47.586)
+2023-01-08 20:48:05.584  INFO 13028 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-01-08 20:48:37.687  INFO 13028 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-08 20:48:37.688  INFO 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-08 20:48:37.688 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2023-01-08 20:48:37.688 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2023-01-08 20:48:37.688 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2023-01-08 20:48:37.689 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@483b7dcf
+2023-01-08 20:48:37.690 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@161c9d1e
+2023-01-08 20:48:37.690 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-01-08 20:48:37.690  INFO 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-01-08 20:48:37.723 DEBUG 13028 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getUsers(String)
+2023-01-08 20:48:37.732 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/admin/users?null=", parameters={masked}
+2023-01-08 20:48:37.734 DEBUG 13028 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getUsers(String)
+2023-01-08 20:48:38.097 DEBUG 13028 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-01-08 20:48:38.097 DEBUG 13028 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.User@64ab9698, com.BSCamp.RentalHouse.entity.User@61338bf, com.BSCamp (truncated)...]
+2023-01-08 20:48:38.216 DEBUG 13028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:48:41.195 DEBUG 13028 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#deleteUser(int)
+2023-01-08 20:48:41.196 DEBUG 13028 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/admin/users/delete/17", parameters={}
+2023-01-08 20:48:41.197 DEBUG 13028 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#deleteUser(int)
+2023-01-08 20:48:41.199 DEBUG 13028 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:48:41.204 DEBUG 13028 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#deleteUser(int)
+2023-01-08 20:48:41.204 DEBUG 13028 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : DELETE "/api/admin/users/delete/17", parameters={}
+2023-01-08 20:48:41.204 DEBUG 13028 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#deleteUser(int)
+2023-01-08 20:48:41.573 DEBUG 13028 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/octet-stream', given [*/*] and supported [*/*]
+2023-01-08 20:48:41.574 DEBUG 13028 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:48:41.585 DEBUG 13028 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getUsers(String)
+2023-01-08 20:48:41.587 DEBUG 13028 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/admin/users?null=", parameters={masked}
+2023-01-08 20:48:41.588 DEBUG 13028 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getUsers(String)
+2023-01-08 20:48:41.614 DEBUG 13028 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-01-08 20:48:41.614 DEBUG 13028 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.User@101fc085, com.BSCamp.RentalHouse.entity.User@6675611b]]
+2023-01-08 20:48:41.616 DEBUG 13028 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:51:18.280 DEBUG 13028 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getEstates(String)
+2023-01-08 20:51:18.281 DEBUG 13028 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/admin/estates?null=", parameters={masked}
+2023-01-08 20:51:18.282 DEBUG 13028 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.AdminController#getEstates(String)
+2023-01-08 20:51:18.412 DEBUG 13028 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-01-08 20:51:18.413 DEBUG 13028 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Estate@112fe9f8, com.BSCamp.RentalHouse.entity.Estate@2494dd21, com.B (truncated)...]
+2023-01-08 20:51:18.423 DEBUG 13028 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:51:18.546 DEBUG 13028 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstateImage(String, String)
+2023-01-08 20:51:18.546 DEBUG 13028 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/media/jpg/1673145255_naomi-hebert-MP0bgaS_d1c-unsplash.jpg", parameters={}
+2023-01-08 20:51:18.547 DEBUG 13028 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.EstateController#getEstateImage(String, String)
+2023-01-08 20:51:18.567 DEBUG 13028 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'image/avif', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [*/*]
+2023-01-08 20:51:18.567 DEBUG 13028 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2023-01-08 20:51:19.663 DEBUG 13028 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
+2023-01-08 20:51:19.664 DEBUG 13028 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
+2023-01-08 20:51:19.664 DEBUG 13028 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
+2023-01-08 20:51:19.675 DEBUG 13028 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-01-08 20:51:19.675 DEBUG 13028 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@dccf914, com.BSCamp.RentalHouse.entity.Category@44e54711, co (truncated)...]
+2023-01-08 20:51:19.677 DEBUG 13028 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2023-01-08 20:52:06.443 DEBUG 13028 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
+2023-01-08 20:52:06.445 DEBUG 13028 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/categories", parameters={}
+2023-01-08 20:52:06.446 DEBUG 13028 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.BSCamp.RentalHouse.controller.CategoryController#getCategories(String)
+2023-01-08 20:52:06.457 DEBUG 13028 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-01-08 20:52:06.458 DEBUG 13028 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.BSCamp.RentalHouse.entity.Category@71438b63, com.BSCamp.RentalHouse.entity.Category@4c86b34, co (truncated)...]
+2023-01-08 20:52:06.468 DEBUG 13028 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

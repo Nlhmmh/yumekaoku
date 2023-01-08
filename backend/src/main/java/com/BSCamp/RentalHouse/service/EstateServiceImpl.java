@@ -31,8 +31,28 @@ public class EstateServiceImpl implements EstateService {
 	}
 
 	@Override
-	public List<Estate> getByTitleOrLocation(String title, String location) {
-		return estateRepo.findByTitleContainingIgnoreCaseOrLocationContainingIgnoreCase(title, location);
+	public List<Estate> getAllByCategoryAndRentOutFalse(Category category) {
+		return estateRepo.findByCategoryAndIsRentOutFalse(category);
+	}
+
+	@Override
+	public List<Estate> getByLocation(String location) {
+		return estateRepo.findByLocationContainingIgnoreCase(location);
+	}
+
+	@Override
+	public List<Estate> getByLocationAndCategory(String location, Category category) {
+		return estateRepo.findByLocationContainingIgnoreCaseAndCategory(location, category);
+	}
+
+	@Override
+	public List<Estate> getByLocationAndRentOutFalse(String location) {
+		return estateRepo.findByLocationContainingIgnoreCaseAndIsRentOutFalse(location);
+	}
+
+	@Override
+	public List<Estate> getByLocationAndCategoryAndRentOutFalse(String location, Category category) {
+		return estateRepo.findByLocationContainingIgnoreCaseAndCategoryAndIsRentOutFalse(location, category);
 	}
 
 	@Override
@@ -73,7 +93,7 @@ public class EstateServiceImpl implements EstateService {
 	@Override
 	public boolean delete(int id) {
 		Estate estate = this.get(id);
-		if(estate == null) {
+		if (estate == null) {
 			return false;
 		}
 		estateRepo.deleteById(id);

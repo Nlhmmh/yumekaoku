@@ -106,7 +106,7 @@ public class AdminController {
 		if (search == null) {
 			return estateService.getAll();
 		}
-		return estateService.getByTitleOrLocation(search, search);
+		return estateService.getByLocation(search);
 	}
 
 	@GetMapping("/estates/{estate_id}")
@@ -196,7 +196,8 @@ public class AdminController {
 	public ResponseEntity<?> deleteCategory(@PathVariable("category_id") int categoryId) {
 		boolean isDeleted = categoryService.delete(categoryId);
 		if (!isDeleted) {
-			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+//			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+			return ResponseEntity.badRequest().body("Category Not found");
 		}
 		return ResponseEntity.ok().build();
 	}
