@@ -1,19 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "../store";
-
 import home from "../views/home.vue";
 import estate_detail from "../views/estate_detail.vue";
+import categorized_estates from "../views/categorized_estates.vue";
 import login from "../views/login.vue";
 import register from "../views/register.vue";
 import profile from "../views/profile.vue";
 import appointments from "../views/appointments.vue";
-
 import admin_estate_list from "../views/admin_estate_list.vue";
 import admin_category_list from "../views/admin_category_list.vue";
+import admin_estate_create from "../views/admin_estate_create.vue";
+import admin_estate_update from "../views/admin_estate_update.vue";
 import admin_users from "../views/admin_users.vue";
 import admin_appointments from "../views/admin_appointments.vue";
 import admin_profile from "../views/admin_profile.vue";
+import change_password from "../views/change_password.vue";
+import search_result from "../views/search_result.vue";
 
 Vue.use(VueRouter);
 
@@ -22,11 +25,6 @@ const routes = [
     path: "/",
     name: "home",
     component: home,
-  },
-  {
-    path: "/estates/:id",
-    name: "estate_detail",
-    component: estate_detail,
   },
   {
     path: "/login",
@@ -44,9 +42,29 @@ const routes = [
     component: profile,
   },
   {
+    path: "/change-password",
+    name: "change_password",
+    component: change_password,
+  },
+  {
     path: "/appointments",
     name: "appointments",
     component: appointments,
+  },
+  {
+    path: "/estates",
+    name: "search_result",
+    component: search_result,
+  },
+  {
+    path: "/estates/:id",
+    name: "estate_detail",
+    component: estate_detail,
+  },
+  {
+    path: "/categories/:categoryId/estates",
+    name: "categorized_estates",
+    component: categorized_estates,
   },
 
   // Admin Auth routes
@@ -54,6 +72,33 @@ const routes = [
     path: "/admin/estates",
     name: "admin_estate_list",
     component: admin_estate_list,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/estate/create",
+    name: "admin_estate_create",
+    component: admin_estate_create,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/estate/:id/update",
+    name: "admin_estate_update",
+    component: admin_estate_update,
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+    },
+  },
+  {
+    path: "/admin/appointments",
+    name: "admin_appointments",
+    component: admin_appointments,
     meta: {
       requiresAuth: true,
       requiresAdmin: true,

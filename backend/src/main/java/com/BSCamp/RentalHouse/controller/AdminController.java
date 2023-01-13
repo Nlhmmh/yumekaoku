@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.BSCamp.RentalHouse.entity.Category;
 import com.BSCamp.RentalHouse.entity.Estate;
 import com.BSCamp.RentalHouse.entity.User;
 import com.BSCamp.RentalHouse.service.CategoryService;
 import com.BSCamp.RentalHouse.service.EstateService;
+import com.BSCamp.RentalHouse.service.StorageService;
 import com.BSCamp.RentalHouse.service.UserService;
 
 @RestController
@@ -36,7 +38,10 @@ public class AdminController {
 
 	@Autowired
 	CategoryService categoryService;
-	
+
+	@Autowired
+	StorageService storageService;
+
 	// Admin User Routes
 	@GetMapping("/users")
 	public List<User> getUsers(@RequestParam(required = false) String filter) {
@@ -69,10 +74,48 @@ public class AdminController {
 		return ResponseEntity.ok().build();
 	}
 
+	//File Routes
+	@PostMapping("/file/create")
+	public ResponseEntity<String> createFile(
+			@RequestParam("file") MultipartFile file,
+			@RequestParam("fileType") String fileType
+	) {
+		String filePath = storageService.create(file, fileType);
+		if (filePath == null) {
+			return ResponseEntity.internalServerError().build();
+		}
+		return ResponseEntity.ok(filePath);
+	}
+
+	@PutMapping("/file/update")
+	public ResponseEntity<String> updateFile(
+			@RequestParam("file") MultipartFile file,
+			@RequestParam("fileType") String fileType,
+			@RequestParam("filePath") String filePath
+	) {
+		String newFilePath = storageService.update(file, fileType, filePath);
+		if (newFilePath == null) {
+			return ResponseEntity.internalServerError().build();
+		}
+		return ResponseEntity.ok(newFilePath);
+	}
+	
 //	Estate Routes
 	@GetMapping("/estates")
-	public List<Estate> getEstates() {
-		return estateService.getAll();
+	public List<Estate> getEstates(@RequestParam(required = false) String search) {
+		if (search == null) {
+			return estateService.getAll();
+		}
+		return estateService.getByLocation(search);
+	}
+
+	@GetMapping("/estates/{estate_id}")
+	public ResponseEntity<?> getEstate(@PathVariable("estate_id") int estateId) {
+		Estate estate = estateService.get(estateId);
+		if (estate == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(estate);
 	}
 	
 	@PostMapping("/estates/create")
@@ -82,6 +125,13 @@ public class AdminController {
 		}
 		if (estate.getCategory().getId() == 0) {
 			return ResponseEntity.badRequest().body("Invalid Category.");
+		}
+
+		if (!storageService.check(estate.getImagePath())) {
+			return ResponseEntity.badRequest().body("Invaild Image");
+		}
+		if (!storageService.check(estate.getVideoPath())) {
+			return ResponseEntity.badRequest().body("Invaild Video");
 		}
 		return ResponseEntity.ok(estateService.create(estate));
 	}
@@ -98,10 +148,22 @@ public class AdminController {
 
 	@DeleteMapping("/estates/delete/{estate_id}")
 	public ResponseEntity<?> deleteEstate(@PathVariable("estate_id") int estateId) {
+		Estate estate = estateService.get(estateId);
+
+		if (estate == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
 		boolean isDeleted = estateService.delete(estateId);
 		if (!isDeleted) {
 			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 		}
+
+		//Delete Estate Image
+		storageService.delete(estate.getImagePath());
+		
+		//Delete Estate Video
+		storageService.delete(estate.getVideoPath());
 		return ResponseEntity.ok().build();
 
 	}
@@ -114,6 +176,7 @@ public class AdminController {
 		}
 		return categoryService.getAllByName(name);
 	}
+
 	@PostMapping("/categories/create")
 	public ResponseEntity<?> createCategory(@Valid @RequestBody Category category) {
 		return ResponseEntity.ok(categoryService.create(category));
@@ -133,7 +196,8 @@ public class AdminController {
 	public ResponseEntity<?> deleteCategory(@PathVariable("category_id") int categoryId) {
 		boolean isDeleted = categoryService.delete(categoryId);
 		if (!isDeleted) {
-			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+//			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+			return ResponseEntity.badRequest().body("Category Not found");
 		}
 		return ResponseEntity.ok().build();
 	}

@@ -18,4 +18,6 @@ public interface UserService {
 	public User update(int id, User user);
 	
 	public boolean delete(int id);
+	
+	public void updatePassword(int id,String newPassword);
 }

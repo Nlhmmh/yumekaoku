@@ -1,7 +1,15 @@
 <template>
-  <v-card class="mx-auto" max-width="300" @click="goToRoute(id)">
+  <v-card class="mx-auto" max-width="300" height="350" @click="goToRoute(id)">
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      width="100%"
+      v-if="imagePath"
+      :src="apiURL + imagePath"
+      height="200px"
+    ></v-img>
+    <v-img
+      width="100%"
+      v-else
+      :src="require('/src/assets/default-estate.jpg')"
       height="200px"
     ></v-img>
 
@@ -14,19 +22,24 @@
         {{ category.name }}
       </v-chip>
       <v-spacer></v-spacer>
-      <div class="text-red">¥{{ rentFee }}</div>
+      <div style="color: green">¥{{ rentFee }}</div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import utils from "@/utils/utils";
+
 export default {
   name: "estate_card",
 
-  props: ["id", "title", "location", "rentFee", "category"],
+  props: ["id", "title", "location", "rentFee", "category", "imagePath"],
+
+  data: () => ({ apiURL: `${utils.constant.LOCAL_API_URL}/api` }),
+
   methods: {
     goToRoute(id) {
-      this.$router.push({ path: `/estates/${id}/detail` });
+      this.$router.push({ path: `/estates/${id}` });
     },
   },
 };

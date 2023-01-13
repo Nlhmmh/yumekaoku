@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app color="deep-purple accent-4" dense dark>
+    <v-app-bar app color="success" dense dark>
       <v-app-bar-nav-icon
         v-if="isLogin && loginUser.role === 'admin'"
         @click="openDrawer = true"
@@ -40,15 +40,14 @@
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            <v-icon class="grey lighten-1" dark> mdi-account-circle </v-icon>
           </v-list-item-avatar>
-         <span>
-          {{ loginUser.name }}
-          <br>
-          {{ loginUser.email }}
-         </span>
+          <span>
+            {{ loginUser.name }}
+            <br />
+            {{ loginUser.email }}
+          </span>
         </v-list-item>
-
       </v-list>
       <v-divider></v-divider>
       <v-list nav dense>
@@ -70,9 +69,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block @click="logout()">
-            Logout
-          </v-btn>
+          <v-btn block @click="logout()"> Logout </v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -98,16 +95,22 @@ export default {
       //   icon: "mdi-view-dashboard",
       //   path: "/admin/dashboard",
       // },
-      { title: "My Account", icon: "mdi-account", path: "/admin/profile" },
-      {
-        title: "Users",
-        icon: "mdi-account-group-outline",
-        path: "/admin/users",
-      },
+      { title: "My Profile", icon: "mdi-account", path: "/profile" },
+
       {
         title: "Estates",
         icon: "mdi-home",
         path: "/admin/estates",
+      },
+      {
+        title: "Appointments",
+        icon: "mdi-home",
+        path: "/appointments",
+      },
+      {
+        title: "Users",
+        icon: "mdi-account-group-outline",
+        path: "/admin/users",
       },
       {
         title: "Categories",
@@ -144,6 +147,7 @@ export default {
   methods: {
     logout() {
       this.$store.commit("logout");
+
       if (this.$route.path != "/") {
         this.$router.push({ path: "/" });
       }
