@@ -112,43 +112,36 @@
         <v-card-title>Booking appointment</v-card-title>
         <v-card-text>
           <v-form ref="addAppointmentForm" v-model="addAppointmentForm">
-            <!-- <v-text-field
-              v-model="loginUser.name"
-              label="Name"
-              placeholder="Enter user name"
-              required
-              :rules="[(v) => !!v || 'Required']"
+            <v-menu
+              ref="menu"
+              v-model="menu"
+              :close-on-content-click="false"
+              :return-value.sync="appointmentDate"
+              transition="scale-transition"
+              offset-y
+              min-width="auto"
             >
-            </v-text-field>
-            <v-text-field
-              v-model="loginUser.email"
-              label="Name"
-              placeholder="Enter user email"
-              required
-              :rules="[(v) => !!v || 'Required']"
-            >
-            </v-text-field>
-            <v-text-field
-              v-model="email"
-              :rules="[
-                (v) => !!v || 'Required',
-                (v) => (v && /.+@.+\..+/.test(v)) || 'E-mail must be valid',
-              ]"
-              label="E-mail"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="loginUser.phoneNumber"
-              label="Phone Number"
-              placeholder="10"
-              type="number"
-              :rules="[
-                (v) => !!v || 'Required',
-                (v) => (v && v > 0) || 'Phone Number must be greater than 0',
-                (v) => (v && v <= 20) || 'Phone Number must be less than 20',
-              ]"
-              required
-            ></v-text-field> -->
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="appointmentDate"
+                  label="Appointment Date"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="appointmentDate" no-title scrollable>
+                <v-spacer></v-spacer>
+                <v-btn text @click="menu = false"> Cancel </v-btn>
+                <v-btn
+                  text
+                  color="success"
+                  @click="$refs.menu.save(appointmentDate)"
+                >
+                  OK
+                </v-btn>
+              </v-date-picker>
+            </v-menu>
             <v-text-field
               v-model="message"
               :counter="1000"
@@ -168,16 +161,18 @@
           <v-btn
             @click="
               appointmentDialog = false;
-              message = '';
+              message =
+                'I would like to make an appointment for this property.';
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="addAppointment()">Book</v-btn>
+          <v-btn color="success" @click="addAppointment()">Book</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
   </div>
 </template>
+
 <script>
 import utils from "@/utils/utils";
 
@@ -191,23 +186,10 @@ export default {
       appointmentDialog: false,
       addAppointmentForm: false,
       loginUser: {},
-      items: [
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-        },
-      ],
 
-      bookingDate: "",
-      message: "I would like to make appointment for this property.",
+      menu: "",
+      appointmentDate: "",
+      message: "I would like to make an appointment for this property.",
     };
   },
 
@@ -244,17 +226,16 @@ export default {
     },
 
     async addAppointment() {
-      if (this.$refs.addAppointmentForm.validate()) {
-        const res = await http.post("/api/user/appointment/add", {
-          name: this.loginUser.name,
-          bookingDate: this.bookingDate,
-          message: this.message,
-        });
+      const res = await utils.http.post("/api/user/appointments/add", {
+        userId: this.loginUser.id,
+        estateId: this.estate.id,
+        appointmentDate: this.appointmentDate,
+        message: this.message,
+      });
 
-        if (res && res.status === 200) {
-          this.appointmentDialog = false;
-          this.message = "I would like to make appointment for this property.";
-        }
+      if (res && res.status === 200) {
+        this.appointmentDialog = false;
+        this.message = "I would like to make an appointment for this property.";
       }
     },
   },
