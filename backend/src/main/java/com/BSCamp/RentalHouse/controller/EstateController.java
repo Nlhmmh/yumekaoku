@@ -33,19 +33,19 @@ public class EstateController {
 
 	@GetMapping("/estates")
 	public List<Estate> getEstates(@RequestParam(required = false) String search,
-			@RequestParam(required = false) Integer categoryId) {
-		if (categoryId != null) {
-			Category category = categoryService.get(categoryId);
-			if (search == null) {
-				return estateService.getAllByCategoryAndRentOutFalse(category);
-			}
-			return estateService.getByLocationAndCategoryAndRentOutFalse(search, category);
-
-		} else {
+			@RequestParam(required = false) String category) {
+		if (category == null || category.equals("all")) {
 			if (search == null) {
 				return estateService.getAllByIsRentOutFalse();
 			}
 			return estateService.getByLocationAndRentOutFalse(search);
+
+		} else {
+			Category cat = categoryService.get(Integer.parseInt(category));
+			if (search == null) {
+				return estateService.getAllByCategoryAndRentOutFalse(cat);
+			}
+			return estateService.getByLocationAndCategoryAndRentOutFalse(search, cat);
 		}
 	}
 

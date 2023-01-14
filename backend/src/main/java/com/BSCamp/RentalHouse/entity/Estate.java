@@ -14,6 +14,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.ColumnDefault;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Estate implements Serializable {
 
@@ -42,6 +44,7 @@ public class Estate implements Serializable {
 
 	@Column(columnDefinition = "boolean", nullable = false)
 	@ColumnDefault("false")
+	@JsonProperty(value = "rentOut")
 	private boolean isRentOut;
 
 	@Column(length = 255, nullable = false)

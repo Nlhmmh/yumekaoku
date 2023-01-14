@@ -28,6 +28,8 @@ public interface EstateService {
 	
 	public Estate update(int id, Estate estate);
 	
+	public Estate updateRentOutStatus(int id, boolean rentOut);
+	
 	public boolean delete(int id);
 
 }
