@@ -68,7 +68,7 @@
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="createCategory()">Save</v-btn>
+          <v-btn color="primary" dark @click="createCategory()">Submit</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -97,7 +97,9 @@
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="updateCategory(item)">Save</v-btn>
+          <v-btn color="primary" dark @click="updateCategory(item)"
+            >Submit</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>

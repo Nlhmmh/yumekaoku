@@ -9,7 +9,7 @@ import com.BSCamp.RentalHouse.entity.User;
 
 @EnableJpaRepositories
 public interface UserRepo extends JpaRepository<User, Integer>{
-	public List<User> findByNameOrEmailOrPhoneNumber(String name, String email, String phoneNumber);
+	public List<User> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrPhoneNumberContainingIgnoreCase(String name, String email, String phoneNumber);
 	
 	public User findByEmail(String email);
 	

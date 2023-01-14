@@ -21,7 +21,7 @@
             class="mx-1"
           ></v-text-field>
           <v-select
-            v-model="categoryId"
+            v-model="category"
             :items="categories"
             label="Property Category"
             item-text="name"
@@ -30,8 +30,8 @@
             class="mx-1"
           ></v-select>
 
+          <!-- :disabled="!search || categoryId === 0" -->
           <v-btn
-            :disabled="!search"
             color="success"
             class="mx-1"
             large
@@ -44,7 +44,6 @@
         </div>
       </div>
     </div>
-
     <section_wrapper title="Search Results" subtitle="">
       <v-row dense v-if="result.length > 0">
         <v-col v-for="estate in result" :key="estate.id" cols="3">
@@ -74,17 +73,17 @@ export default {
 
   data: () => ({
     search: null,
-    categoryId: 0,
+    category: "all",
     result: [],
   }),
 
   async created() {
-    await this.fetchSearchedEstates();
+    await this.fetchSearchedEstates(this.$route.query);
   },
 
   methods: {
-    async fetchSearchedEstates() {
-      const res = await utils.http.get(`/api/estates`, this.$route.query);
+    async fetchSearchedEstates(query) {
+      const res = await utils.http.get(`/api/estates`, query);
 
       if (res && res.status === 200) {
         const data = await res.json();
@@ -97,7 +96,7 @@ export default {
     onSearch() {
       this.$router.push({
         path: "/estates",
-        query: { search: this.search, categoryId: this.categoryId },
+        query: { search: this.search, category: this.category },
       });
     },
   },

@@ -95,16 +95,16 @@ export default {
       //   icon: "mdi-view-dashboard",
       //   path: "/admin/dashboard",
       // },
-      { title: "My Profile", icon: "mdi-account", path: "/profile" },
+      { title: "My Profile", icon: "mdi-account-box", path: "/profile" },
 
       {
         title: "Estates",
-        icon: "mdi-home",
+        icon: "mdi-home-city",
         path: "/admin/estates",
       },
       {
         title: "Appointments",
-        icon: "mdi-home",
+        icon: "mdi-calendar",
         path: "/appointments",
       },
       {

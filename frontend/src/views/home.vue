@@ -22,7 +22,7 @@
             class="mx-1"
           ></v-text-field>
           <v-select
-            v-model="categoryId"
+            v-model="category"
             :items="categories"
             label="Property Category"
             item-text="name"
@@ -99,7 +99,7 @@ export default {
 
   data: () => ({
     search: null,
-    categoryId: 0,
+    category: "all",
     estates: [],
     categories: [],
     cards: [
@@ -173,7 +173,10 @@ export default {
     onSearch() {
       this.$router.push({
         path: "/estates",
-        query: { search: this.search, categoryId: this.categoryId },
+        query: {
+          search: this.search ?? null,
+          category: this.category,
+        },
       });
     },
   },
@@ -196,6 +199,5 @@ export default {
   border-radius: 10px;
   padding: 20px;
   background: rgba(247, 246, 246, 0.5);
-
 }
 </style>

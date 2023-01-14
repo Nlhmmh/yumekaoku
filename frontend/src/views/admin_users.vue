@@ -22,7 +22,7 @@
         <template v-slot:item.role="{ item }">
           <v-chip
             label
-            color="item?.role === 'admin' ? primary: success"
+            :color="item?.role === 'admin' ? 'primary' : 'success'"
             v-model="item.role"
           >
             {{ item.role }}</v-chip
@@ -105,10 +105,19 @@
             @click="
               createDialog = false;
               name = '';
+              email = '';
+              phoneNumber = '';
+              password = '';
+              role = 'admin';
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="createUser()">Save</v-btn>
+          <v-btn
+            color="success"
+            @click="createUser()"
+            :disabled="!createUserForm"
+            >Submit</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -153,11 +162,17 @@
               name = '';
               email = '';
               phoneNumber = '';
+              password = '';
               role = 'admin';
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="updateUser(item)">Save</v-btn>
+          <v-btn
+            color="success"
+            @click="updateUser(item)"
+            :disabled="!updateUserForm"
+            >Submit</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
