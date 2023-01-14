@@ -77,10 +77,8 @@
 </template>
 
 <script>
-// import admin_sidebar from "./admin_sidebar.vue";
 export default {
   name: "appbar",
-  // components: { admin_sidebar },
 
   data: () => ({
     isLogin: false,
@@ -95,17 +93,18 @@ export default {
       //   icon: "mdi-view-dashboard",
       //   path: "/admin/dashboard",
       // },
-      { title: "My Profile", icon: "mdi-account", path: "/profile" },
+
+      { title: "My Profile", icon: "mdi-account-box", path: "/profile" },
 
       {
         title: "Estates",
-        icon: "mdi-home",
+        icon: "mdi-home-city",
         path: "/admin/estates",
       },
       {
         title: "Appointments",
-        icon: "mdi-home",
-        path: "/appointments",
+        icon: "mdi-calendar",
+        path: "/admin/appointments",
       },
       {
         title: "Users",

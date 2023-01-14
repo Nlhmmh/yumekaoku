@@ -95,14 +95,6 @@ export default {
   },
 
   methods: {
-    // async register() {
-    //   if (this.$refs.registerForm.validate()) {
-    //     // TODO : Call API
-
-    //     // Go to home Screen
-    //     this.$router.push({ path: "/" });
-    //   }
-    // },
     async register() {
       if (this.$refs.registerForm.validate()) {
         this.errorAlert = false;

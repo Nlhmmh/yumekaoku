@@ -44,9 +44,11 @@ CREATE TABLE `rental_house.estate` (
 
 CREATE TABLE `rental_house.appointment` (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--     name VARCHAR(100) NOT NULL,
+--     email VARCHAR(150) NOT NULL UNIQUE,
+--     phone_number VARCHAR(100) NOT NULL,
     appointment_date DATETIME NOT NULL,
     message VARCHAR(255),
-   --  status ENUM('upcoming', 'progress','done','cancelled') NOT NULL DEFAULT 'upcoming',
     user_id INT UNSIGNED,
     estate_id INT UNSIGNED,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -55,4 +57,3 @@ CREATE TABLE `rental_house.appointment` (
     FOREIGN KEY (user_id) REFERENCES `rental_house.user` (id),
 	FOREIGN KEY (estate_id) REFERENCES `rental_house.estate` (id)
 );
-

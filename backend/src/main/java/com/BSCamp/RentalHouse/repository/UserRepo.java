@@ -8,11 +8,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.BSCamp.RentalHouse.entity.User;
 
 @EnableJpaRepositories
-public interface UserRepo extends JpaRepository<User, Integer>{
-	public List<User> findByNameOrEmailOrPhoneNumber(String name, String email, String phoneNumber);
-	
-	public User findByEmail(String email);
-	
+public interface UserRepo extends JpaRepository<User, Integer> {
 
+	public List<User> findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrPhoneNumberContainingIgnoreCase(
+			String name, String email, String phoneNumber);
+
+	public User findByEmail(String email);
 
 }

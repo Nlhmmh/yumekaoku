@@ -22,7 +22,7 @@
             class="mx-1"
           ></v-text-field>
           <v-select
-            v-model="categoryId"
+            v-model="category"
             :items="categories"
             label="Property Category"
             item-text="name"
@@ -72,7 +72,7 @@
     >
       <v-row class="my-5" dense>
         <v-col v-for="cat in categories" :key="cat.id" :cols="4">
-          <v-card @click="onRouteChange(cat.id)">
+          <v-card @click="onRouteChange(cat.id)" class="my-1">
             <v-img
               src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
               class="white--text align-end"
@@ -99,7 +99,7 @@ export default {
 
   data: () => ({
     search: null,
-    categoryId: 0,
+    category: "all",
     estates: [],
     categories: [],
     cards: [
@@ -140,6 +140,7 @@ export default {
       },
     ],
   }),
+
   async created() {
     await this.fetchEstates();
     await this.fetchCategories();
@@ -173,7 +174,10 @@ export default {
     onSearch() {
       this.$router.push({
         path: "/estates",
-        query: { search: this.search, categoryId: this.categoryId },
+        query: {
+          search: this.search ?? "",
+          category: this.category,
+        },
       });
     },
   },
@@ -196,6 +200,5 @@ export default {
   border-radius: 10px;
   padding: 20px;
   background: rgba(247, 246, 246, 0.5);
-
 }
 </style>

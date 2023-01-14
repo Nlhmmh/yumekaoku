@@ -91,6 +91,18 @@ public class EstateServiceImpl implements EstateService {
 	}
 
 	@Override
+	public Estate updateRentOutStatus(int id, boolean rentOut) {
+		Estate toUpdateEstate = this.get(id);
+		if (toUpdateEstate == null) {
+			return null;
+		}
+		toUpdateEstate.setRentOut(rentOut);
+		toUpdateEstate.setUpdatedAt(LocalDateTime.now());
+		estateRepo.save(toUpdateEstate);
+		return toUpdateEstate;
+	}
+
+	@Override
 	public boolean delete(int id) {
 		Estate estate = this.get(id);
 		if (estate == null) {

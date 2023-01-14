@@ -1,29 +1,59 @@
 <template>
   <div>
     <!-- Profile Card -->
-    <v-card class="mx-auto pa-3" max-width="344">
-      <v-card-text>
-        <div>Welcome</div>
-        <p class="text-h4 text--primary">
-          {{ loginUser.name }}
-        </p>
+    <v-row class="ma-10">
+      <v-col cols="4">
+        <v-card class="pa-5">
+          <v-card-text>
+            <div>Welcome</div>
+            <p class="text-h4 text--primary">
+              {{ loginUser.name }}
+            </p>
 
-        <p>Data</p>
-        <div class="text--primary">
-          <div v-if="loginUser.role == 'admin'">Admin</div>
-          <div>{{ loginUser.email }}</div>
-          <div>{{ loginUser.phoneNumber }}</div>
-        </div>
-      </v-card-text>
+            <p>Data</p>
+            <div class="text--primary">
+              <div v-if="loginUser.role == 'admin'">Admin</div>
+              <div>{{ loginUser.email }}</div>
+              <div>{{ loginUser.phoneNumber }}</div>
+            </div>
+          </v-card-text>
 
-      <!-- Change Pwd Btn -->
-      <v-btn text color="teal accent-4" @click="onUpdateProfile()">
-        Update Profile
-      </v-btn>
-      <v-btn text color="teal accent-4" @click="changePwd()">
-        Update Password
-      </v-btn>
-    </v-card>
+          <!-- Change Pwd Btn -->
+          <v-btn text color="teal accent-4" @click="onUpdateProfile()">
+            Update Profile
+          </v-btn>
+          <v-btn text color="teal accent-4" @click="changePwd()">
+            Update Password
+          </v-btn>
+        </v-card>
+      </v-col>
+      <v-col cols="8">
+        <v-card class="pa-5" v-if="loginUser && loginUser?.role === 'user'">
+          <v-card-title>
+            Appointment List
+            <v-spacer></v-spacer>
+          </v-card-title>
+          <v-data-table
+            :headers="headers"
+            :items="appointments"
+            :items-per-page="10"
+          >
+            <template v-slot:item.user="{ item }">
+              {{ item?.user?.name }} - {{ item?.user?.phoneNumber }}
+              <br />
+              <small>
+                {{ item?.user?.email }}
+              </small>
+            </template>
+            <template v-slot:item.estate="{ item }">
+              <router-link to="{path: '/estates/' + item?.estate?.id}">{{
+                item?.estate?.title
+              }}</router-link>
+            </template>
+          </v-data-table>
+        </v-card>
+      </v-col>
+    </v-row>
 
     <v-dialog v-model="profileDialog" width="500">
       <v-card>
@@ -60,7 +90,12 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn @click="profileDialog = false">Cancel</v-btn>
-          <v-btn color="primary" dark @click="updateProfile()">Save</v-btn>
+          <v-btn
+            color="success"
+            @click="updateProfile()"
+            :disabled="!profileUpdateForm"
+            >Submit</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -84,6 +119,14 @@ export default {
       errorAlert: false,
       errMsg: "",
       loading: false,
+      appointments: [],
+      headers: [
+        { text: "User", value: "user", sortable: false },
+        { text: "Estate", value: "estate", sortable: false },
+        { text: "Appointment Date", value: "appointmentDate", sortable: false },
+        // { text: "Status", value: "status", sortable: false },
+        { text: "Message", value: "message", sortable: false },
+      ],
     };
   },
 
@@ -101,6 +144,10 @@ export default {
       }
     );
     await this.getProfile();
+
+    if (this.loginUser && this.loginUser?.role === "user") {
+      await this.fetchAppointments();
+    }
   },
 
   methods: {
@@ -148,6 +195,18 @@ export default {
           console.log(error);
         } finally {
           this.loading = false;
+        }
+      }
+    },
+
+    async fetchAppointments() {
+      const res = await utils.http.get(
+        `/api/user/${this.loginUser?.id}/appointments`
+      );
+      if (res && res.status === 200) {
+        const data = await res.json();
+        if (data) {
+          this.appointments = data;
         }
       }
     },

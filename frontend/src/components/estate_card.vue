@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="300" height="350" @click="goToRoute(id)">
+  <v-card class="ma-1" max-width="300" height="370" @click="goToRoute(id)">
     <v-img
       width="100%"
       v-if="imagePath"

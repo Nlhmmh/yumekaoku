@@ -108,6 +108,10 @@
                 'Image size should be less than 10 MB!',
             ]"
             @change="onChangeImage"
+            @click:clear="
+              imagePath = null;
+              image = null;
+            "
           ></v-file-input>
 
           <!-- Image Preview -->
@@ -138,6 +142,10 @@
                 'Video size should be less than 100 MB!',
             ]"
             @change="onChangeVideo"
+            @click:clear="
+              videoPath = null;
+              video = null;
+            "
           ></v-file-input>
 
           <!-- Video Preview -->

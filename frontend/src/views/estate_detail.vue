@@ -4,15 +4,6 @@
       <v-row>
         <v-col cols="10">
           <v-sheet color="white" elevation="1" class="pa-5">
-            <!-- <v-carousel>
-            <v-carousel-item
-              v-for="(item, i) in items"
-              :key="i"
-              :src="item.src"
-              reverse-transition="fade-transition"
-              transition="fade-transition"
-            ></v-carousel-item>
-          </v-carousel> -->
             <v-img
               v-if="estate.imagePath"
               :src="apiURL + estate.imagePath"
@@ -32,26 +23,19 @@
             <h2 class="my-2">{{ estate.title }}</h2>
             <div class="d-flex justify-content-between">
               <v-chip label color="secondary">
-                {{ estate.category.name }}
+                {{ estate?.category?.name }}
               </v-chip>
-              <v-btn color="primary" @click="openAppointmentDialog()">
+              <v-btn
+                color="primary"
+                @click="!isLogin ? onLoginRoute() : openAppointmentDialog()"
+              >
                 Book appointment
               </v-btn>
             </div>
             <div class="my-2">
-              <h4 v-if="estate.size">Size: {{ estate.size }}</h4>
+              <h4 v-if="estate.size">Size: {{ estate.size }} m<sup>2</sup></h4>
               <h4>Description</h4>
               <p>{{ estate.description }}</p>
-              <!-- <p>
-              Totally Brand New Building (Completion: January 10 2023) No
-              Guarantor, No Key Money, No Agent Fee 2 months deposit only High
-              Grade Housing Equipment and Fully Furnished with all new high
-              grade electrical appliances and furniture decorated by the
-              interior coordinator High Speed Internet, 87 channel Cable TV
-              Ideal for Home or Home/Office- 2 work spaces available Excellent
-              Sound Proofing – Music Instruments May Be Ok (please inquire)
-              Central Heating and Cooling
-            </p> -->
             </div>
 
             <v-divider></v-divider>
@@ -99,56 +83,54 @@
             </div>
           </v-sheet>
         </v-col>
-        <!-- <v-col cols="2">
-        <v-sheet color="white" elevation="1" class="pa-5">
-          <h4>Search Properties</h4>
-        </v-sheet>
-      </v-col> -->
       </v-row>
     </v-container>
 
     <v-dialog v-model="appointmentDialog" width="500">
       <v-card>
-        <v-card-title>Booking appointment</v-card-title>
+        <v-card-title>Make an appointment?</v-card-title>
         <v-card-text>
           <v-form ref="addAppointmentForm" v-model="addAppointmentForm">
-            <!-- <v-text-field
-              v-model="loginUser.name"
-              label="Name"
-              placeholder="Enter user name"
-              required
-              :rules="[(v) => !!v || 'Required']"
+            <v-menu
+              ref="menu"
+              v-model="menu"
+              :close-on-content-click="false"
+              :return-value.sync="appointmentDate"
+              transition="scale-transition"
+              offset-y
+              min-width="auto"
             >
-            </v-text-field>
-            <v-text-field
-              v-model="loginUser.email"
-              label="Name"
-              placeholder="Enter user email"
-              required
-              :rules="[(v) => !!v || 'Required']"
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="appointmentDate"
+                  label="Appointment Date"
+                  v-bind="attrs"
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="appointmentDate" no-title scrollable>
+                <v-spacer></v-spacer>
+                <v-btn text @click="menu = false"> Cancel </v-btn>
+                <v-btn
+                  text
+                  color="success"
+                  @click="$refs.menu.save(appointmentDate)"
+                >
+                  OK
+                </v-btn>
+              </v-date-picker>
+            </v-menu>
+            <span class="subheading">Select time</span>
+
+            <v-chip-group
+              v-model="selectTime"
+              active-class="deep-purple--text text--accent-4"
+              mandatory
             >
-            </v-text-field>
-            <v-text-field
-              v-model="email"
-              :rules="[
-                (v) => !!v || 'Required',
-                (v) => (v && /.+@.+\..+/.test(v)) || 'E-mail must be valid',
-              ]"
-              label="E-mail"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="loginUser.phoneNumber"
-              label="Phone Number"
-              placeholder="10"
-              type="number"
-              :rules="[
-                (v) => !!v || 'Required',
-                (v) => (v && v > 0) || 'Phone Number must be greater than 0',
-                (v) => (v && v <= 20) || 'Phone Number must be less than 20',
-              ]"
-              required
-            ></v-text-field> -->
+              <v-chip v-for="time in times" :key="time" :value="time">
+                {{ time }}
+              </v-chip>
+            </v-chip-group>
             <v-text-field
               v-model="message"
               :counter="1000"
@@ -168,11 +150,13 @@
           <v-btn
             @click="
               appointmentDialog = false;
-              message = '';
+              appointmentDate = '';
+              message =
+                'I would like to make an appointment for this property.';
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="addAppointment()">Book</v-btn>
+          <v-btn color="success" @click="addAppointment()">Book</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -191,28 +175,19 @@ export default {
       appointmentDialog: false,
       addAppointmentForm: false,
       loginUser: {},
-      items: [
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-        },
-      ],
+      isLogin: false,
+      times: ["10:00", "11:00", "13:00", "14:00", "15:00", "16:00"],
+      selectTime: "10:00",
 
-      bookingDate: "",
-      message: "I would like to make appointment for this property.",
+      alertType: "success",
+
+      menu: "",
+      appointmentDate: "",
+      message: "I would like to make an appointment for this property.",
     };
   },
 
   async created() {
-    await this.fetchEstate();
     this.loginUser = this.$store.state.loginUser;
     this.$store.watch(
       () => {
@@ -225,6 +200,19 @@ export default {
         deep: true,
       }
     );
+
+    this.isLogin = this.$store.state.isLogin;
+    this.$store.watch(
+      () => {
+        return this.$store.state.isLogin;
+      },
+      (newVal, oldVal) => {
+        this.isLogin = newVal;
+      },
+      { deep: true }
+    );
+
+    await this.fetchEstate();
   },
   methods: {
     async fetchEstate() {
@@ -243,18 +231,23 @@ export default {
       this.appointmentDialog = true;
     },
 
-    async addAppointment() {
-      if (this.$refs.addAppointmentForm.validate()) {
-        const res = await http.post("/api/user/appointment/add", {
-          name: this.loginUser.name,
-          bookingDate: this.bookingDate,
-          message: this.message,
-        });
+    onLoginRoute() {
+      this.$router.push({ path: "/login" });
+    },
 
-        if (res && res.status === 200) {
-          this.appointmentDialog = false;
-          this.message = "I would like to make appointment for this property.";
-        }
+    async addAppointment() {
+      console.log("tt", this.appointmentDate, this.selectTime);
+      const res = await utils.http.post("/api/user/appointments/add", {
+        userId: this.loginUser.id,
+        estateId: this.estate.id,
+        appointmentDate: this.appointmentDate + "T" + this.selectTime,
+        message: this.message,
+      });
+
+      if (res && res.status === 200) {
+        this.appointmentDialog = false;
+        this.alertType = "success";
+        this.message = "I would like to make an appointment for this property.";
       }
     },
   },

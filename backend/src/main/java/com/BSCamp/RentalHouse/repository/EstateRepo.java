@@ -12,16 +12,18 @@ import com.BSCamp.RentalHouse.entity.Estate;
 @EnableJpaRepositories
 public interface EstateRepo extends JpaRepository<Estate, Integer> {
 	public List<Estate> findByCategory(Category category);
-	
+
 	public List<Estate> findByCategoryAndIsRentOutFalse(Category category);
 
 	public List<Estate> findByLocationContainingIgnoreCase(String location);
-	
+
 	public List<Estate> findByLocationContainingIgnoreCaseAndCategory(String location, Category category);
-	
+
 	public List<Estate> findByLocationContainingIgnoreCaseAndIsRentOutFalse(String location);
-	
-	public List<Estate> findByLocationContainingIgnoreCaseAndCategoryAndIsRentOutFalse(String location, Category category);
+
+	public List<Estate> findByLocationContainingIgnoreCaseAndCategoryAndIsRentOutFalse(String location,
+			Category category);
+
 //	@Query("SELECT * FROM estate WHERE is_rent_out = false")
 	public List<Estate> findByIsRentOutFalse();
 

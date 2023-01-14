@@ -100,25 +100,13 @@
             prepend-icon="mdi-camera"
             placeholder="Choose Estate Image"
             accept="image/png, image/jpeg, image/jpg"
-            :rules="[
-              (v) => !!v || 'Required',
-              (v) =>
-                !v ||
-                v.size < 10000000 ||
-                'Image size should be less than 10 MB!',
-            ]"
-            @change="onChangeImage"
+            @click:clear="
+              imagePath = null;
+              image = null;
+            "
           ></v-file-input>
 
           <!-- Image Preview -->
-          <v-img
-            v-if="initEstate.imagePath != null"
-            :src="apiURL + initEstate.imagePath"
-            width="200"
-            height="150"
-            contain
-          >
-          </v-img>
           <v-img
             v-if="imagePath != null"
             :src="imagePath"
@@ -138,14 +126,11 @@
             prepend-icon="mdi-video"
             placeholder="Choose Estate video"
             accept="video/mp4"
-            :rules="[
-              (v) => !!v || 'Required',
-              (v) =>
-                !v ||
-                v.size < 100000000 ||
-                'Video size should be less than 100 MB!',
-            ]"
             @change="onChangeVideo"
+            @click:clear="
+              videoPath = null;
+              video = null;
+            "
           ></v-file-input>
 
           <!-- Video Preview -->

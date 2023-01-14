@@ -1,11 +1,6 @@
 <template>
   <div>
     <div class="landing">
-      <!-- <v-img
-        max-height="350"
-        max-width="100%"
-        :src="require('/src/assets/landing-bg.jpg')"
-      ></v-img> -->
       <div class="advanced-form">
         <h2 style="color: white" class="my-2">
           Find a home in Japan with Yumekaoku
@@ -21,7 +16,7 @@
             class="mx-1"
           ></v-text-field>
           <v-select
-            v-model="categoryId"
+            v-model="category"
             :items="categories"
             label="Property Category"
             item-text="name"
@@ -30,8 +25,8 @@
             class="mx-1"
           ></v-select>
 
+          <!-- :disabled="!search || categoryId === 0" -->
           <v-btn
-            :disabled="!search"
             color="success"
             class="mx-1"
             large
@@ -44,7 +39,6 @@
         </div>
       </div>
     </div>
-
     <section_wrapper title="Search Results" subtitle="">
       <v-row dense v-if="result.length > 0">
         <v-col v-for="estate in result" :key="estate.id" cols="3">
@@ -58,7 +52,7 @@
           ></estate_card>
         </v-col>
       </v-row>
-      <h2 v-else>test</h2>
+      <h2 v-else class="text-center">No data Found</h2>
     </section_wrapper>
   </div>
 </template>
@@ -74,17 +68,19 @@ export default {
 
   data: () => ({
     search: null,
-    categoryId: 0,
+    category: "all",
     result: [],
+    categories: [],
   }),
 
   async created() {
-    await this.fetchSearchedEstates();
+    await this.fetchSearchedEstates(this.$route.query);
+    await this.fetchCategories();
   },
 
   methods: {
-    async fetchSearchedEstates() {
-      const res = await utils.http.get(`/api/estates`, this.$route.query);
+    async fetchSearchedEstates(query) {
+      const res = await utils.http.get(`/api/estates`, query);
 
       if (res && res.status === 200) {
         const data = await res.json();
@@ -94,10 +90,20 @@ export default {
       }
     },
 
+    async fetchCategories() {
+      const res = await utils.http.get("/api/categories");
+      if (res && res.status === 200) {
+        const data = await res.json();
+        if (data) {
+          this.categories = data;
+        }
+      }
+    },
+
     onSearch() {
       this.$router.push({
         path: "/estates",
-        query: { search: this.search, categoryId: this.categoryId },
+        query: { search: this.search ?? "", category: this.category },
       });
     },
   },

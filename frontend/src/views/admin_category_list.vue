@@ -68,7 +68,8 @@
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="createCategory()">Save</v-btn>
+
+          <v-btn color="success" @click="createCategory()">Submit</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -97,7 +98,7 @@
             "
             >Cancel</v-btn
           >
-          <v-btn color="primary" dark @click="updateCategory(item)">Save</v-btn>
+          <v-btn color="success" @click="updateCategory(item)">Submit</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -120,16 +121,13 @@
 
 <script>
 import http from "@/utils/http";
-// import category_form from "@/components/category_form.vue";
 
 export default {
   name: "admin_category_list",
-  // components: { category_form },
 
   data: () => {
     return {
       headers: [
-        { text: "ID", value: "id", sortable: true },
         { text: "Name", value: "name", sortable: true },
         { text: "Actions", value: "actions", sortable: false },
       ],
