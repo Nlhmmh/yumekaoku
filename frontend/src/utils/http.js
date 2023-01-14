@@ -1,10 +1,18 @@
 import constant from "./constant";
 
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 async function get(path, params) {
+    let url = constant.LOCAL_API_URL + path ;
+    console.log('par',params);
+    if (params !== undefined || params !==null) {
+       url= new URL(url);
+       url.search = new URLSearchParams(params);
+    }
     try {
-        const res = await fetch(constant.LOCAL_API_URL + path, {
+        const res = await fetch(url , {
             method: "GET",
-            params: params
         })
         return res;
     } catch (error) {
@@ -77,11 +85,12 @@ async function postMedia(path, file, fileType) {
     }
 }
 
-async function putMedia(path, file, fileType) {
+async function putMedia(path, file, fileType, filePath) {
     try {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("fileType", fileType);
+        formData.append("filePath", filePath);
         const res = await fetch(constant.LOCAL_API_URL + path, {
             method: "PUT",
             body: formData

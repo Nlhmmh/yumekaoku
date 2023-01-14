@@ -13,6 +13,7 @@ import com.BSCamp.RentalHouse.entity.UserRole;
 import com.BSCamp.RentalHouse.entity.UserStatus;
 import com.BSCamp.RentalHouse.service.CategoryService;
 import com.BSCamp.RentalHouse.service.EstateService;
+import com.BSCamp.RentalHouse.service.StorageService;
 import com.BSCamp.RentalHouse.service.UserService;
 
 @SpringBootApplication
@@ -26,8 +27,14 @@ public class RentalHouseApplication implements CommandLineRunner {
 	@Autowired
 	EstateService estateService;
 
+	@Autowired
+	StorageService storageService;
+
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String ddlMode;
+
+	@Value("${custom.delete.files}")
+	private String deleteFiles;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RentalHouseApplication.class, args);
@@ -46,7 +53,6 @@ public class RentalHouseApplication implements CommandLineRunner {
 			Category category5 = categoryService.create(new Category(5, "1K Apartment"));
 			Category category6 = categoryService.create(new Category(6, "Retail Shop"));
 			Category category7 = categoryService.create(new Category(7, "Sharedhouse"));
-			
 
 			estateService.create(new Estate(1, "Itabashi-ku - Tokyo", "test", 195000, 5000, 44, false,
 					"Itabashi-ku - Tokyo", null, null, null, category1));
@@ -64,11 +70,12 @@ public class RentalHouseApplication implements CommandLineRunner {
 					"MINATO-KU, TOKYO, in ROPPONGI", null, null, null, category7));
 			estateService.create(new Estate(8, "Setagaya-ku - Tokyo", "test", 95000, 5000, 44, false,
 					"Setagaya-ku - Tokyo", null, null, null, category4));
-		
-		
-
+	
 		}
-
+		
+		if (deleteFiles.equals("true")) {
+			storageService.clearAll();
+		}
 	}
 
 }
