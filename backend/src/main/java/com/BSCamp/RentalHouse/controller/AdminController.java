@@ -27,6 +27,7 @@ import com.BSCamp.RentalHouse.service.StorageService;
 import com.BSCamp.RentalHouse.service.UserService;
 
 @RestController
+
 @RequestMapping("/api/admin")
 public class AdminController {
 

@@ -12,6 +12,7 @@ import com.BSCamp.RentalHouse.repository.EstateRepo;
 
 @Service
 public class EstateServiceImpl implements EstateService {
+	
 	@Autowired
 	EstateRepo estateRepo;
 
