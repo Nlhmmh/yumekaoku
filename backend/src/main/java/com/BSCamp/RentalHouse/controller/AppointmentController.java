@@ -14,17 +14,17 @@ import com.BSCamp.RentalHouse.service.AppointmentService;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class AppointmentController {
 	@Autowired
 	AppointmentService service;
 	
-	@GetMapping("/house")
+	@GetMapping("/appointments")
 	public List<Appointment> getAll() {
 		return service.getAll();
 	}
 	
-	@PostMapping("/house")
+	@PostMapping("/appointments/add")
 	public Appointment create(@RequestBody Appointment appointment) {
 	
 		return service.create(appointment);

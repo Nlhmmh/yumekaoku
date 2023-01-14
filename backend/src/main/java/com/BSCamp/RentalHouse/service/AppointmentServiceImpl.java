@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.BSCamp.RentalHouse.entity.Appointment;
 import com.BSCamp.RentalHouse.entity.User;
+import com.BSCamp.RentalHouse.entity.UserStatus;
 import com.BSCamp.RentalHouse.repository.AppointmentRepo;
 
 @Service
@@ -26,36 +27,40 @@ public class AppointmentServiceImpl implements AppointmentService {
 		return repo.findByUser(user);
 	}
 
-	@Override
-	public Appointment get(int id) {
-		return repo.findById(id).orElse(null);
-	}
+//	@Override
+//	public Appointment get(int id) {
+//		return repo.findById(id).orElse(null);
+//	}
 
 	@Override
 	public Appointment create(Appointment appointment) {
+		
+		appointment.setAppointmentDate((appointment.getAppointmentDate()));
 		appointment.setCreatedAt(LocalDateTime.now());
+		
+		appointment.setMessage(appointment. getMessage());
 		return repo.save(appointment);
 	}
 
-	public Appointment update(int id, Appointment appointment) {
-		Appointment toUpdateAppointment = this.get(id);
-		if (toUpdateAppointment == null) {
-			return null;
-		}
-		toUpdateAppointment.setId(id);
-		toUpdateAppointment.setMessage(appointment.getMessage());
-		toUpdateAppointment.setUpdatedAt(LocalDateTime.now());
-		repo.save(toUpdateAppointment);
-		return toUpdateAppointment;
-	}
+//	public Appointment update(int id, Appointment appointment) {
+//		Appointment toUpdateAppointment = this.get(id);
+//		if (toUpdateAppointment == null) {
+//			return null;
+//		}
+//		toUpdateAppointment.setId(id);
+//		toUpdateAppointment.setMessage(appointment.getMessage());
+//		toUpdateAppointment.setUpdatedAt(LocalDateTime.now());
+//		repo.save(toUpdateAppointment);
+//		return toUpdateAppointment;
+//	}
 
-	@Override
-	public boolean delete(int id) {
-		Appointment appointment = this.get(id);
-		if (appointment == null) {
-			return false;
-		}
-		repo.deleteById(id);
-		return true;
-	}
+//	@Override
+//	public boolean delete(int id) {
+//		Appointment appointment = this.get(id);
+//		if (appointment == null) {
+//			return false;
+//		}
+//		repo.deleteById(id);
+//		return true;
+//	}
 }

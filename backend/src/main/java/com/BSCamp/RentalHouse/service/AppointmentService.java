@@ -10,13 +10,13 @@ public interface AppointmentService {
 
 	public List<Appointment> getByUser(User user);
 
-	public Appointment get(int id);
+//	public Appointment get(int id);
 
 	public Appointment create(Appointment appointment);
 
-	public Appointment update(int id, Appointment appointment);
+//	public Appointment update(int id, Appointment appointment);
 
-	public boolean delete(int id);
+//	public boolean delete(int id);
 
 	
 
