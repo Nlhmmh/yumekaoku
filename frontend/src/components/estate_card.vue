@@ -22,7 +22,7 @@
         {{ category.name }}
       </v-chip>
       <v-spacer></v-spacer>
-      <div style="color: green">¥{{ rentFee }}</div>
+      <div style="color: green">{{ formatCurrency(rentFee) }}</div>
     </v-card-text>
   </v-card>
 </template>
@@ -35,12 +35,16 @@ export default {
 
   props: ["id", "title", "location", "rentFee", "category", "imagePath"],
 
-  data: () => ({ apiURL: `${utils.constant.LOCAL_API_URL}/api` }),
+  data: () => ({
+    apiURL: `${utils.constant.LOCAL_API_URL}/api`,
+  }),
 
   methods: {
     goToRoute(id) {
       this.$router.push({ path: `/estates/${id}` });
     },
+
+    formatCurrency: (value) => utils.formatCurrency(value),
   },
 };
 </script>

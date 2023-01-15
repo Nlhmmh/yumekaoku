@@ -48,7 +48,7 @@
             label="Maintenance Fee"
           ></v-text-field>
 
-          <!-- <v-switch v-model="isRentOut" inset></v-switch> -->
+         
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field

@@ -16,6 +16,9 @@
       </v-btn>
     </v-card-title>
     <v-data-table :headers="headers" :items="estatelist" :items-per-page="10">
+      <template v-slot:item.rentFee="{ item }">
+        {{ formatCurrency(item.rentFee) }}
+      </template>
       <template v-slot:item.imagePath="{ item }">
         <v-img
           v-if="item.imagePath"
@@ -34,7 +37,10 @@
       </template>
 
       <template v-slot:item.rentOut="{ item }">
-        <v-switch v-model="item.rentOut"></v-switch>
+        <v-switch
+          v-model="item.rentOut"
+          @change="updateRentOut(item.id, item?.rentOut)"
+        ></v-switch>
       </template>
 
       <template v-slot:item.actions="{ item }">
@@ -102,18 +108,21 @@ export default {
         { text: "RentOut", value: "rentOut", sortable: false },
         { text: "Actions", value: "actions", sortable: false },
       ],
-      search: null,
+      search: "",
       selectItem: {},
       estatelist: [],
 
       deleteDialog: false,
     };
   },
+
   async created() {
     await this.fetchEstates();
   },
 
   methods: {
+    formatCurrency: (value) => utils.formatCurrency(value),
+
     async fetchEstates() {
       const res = await utils.http.get(
         "/api/admin/estates",
@@ -121,7 +130,7 @@ export default {
           ? {
               search: this.search,
             }
-          : null
+          : ""
       );
       if (res && res.status === 200) {
         const data = await res.json();
@@ -138,16 +147,29 @@ export default {
         this.deleteDialog = false;
       }
     },
+
+    async updateRentOut(id, rentOut) {
+      const res = await utils.http.put(
+        `/api/admin/estates/${id}/rentout/update?rentout=${rentOut}`
+      );
+      if (res && res.status === 200) {
+        await this.fetchEstates();
+      }
+    },
+
     onClickCreateBtn() {
       this.$router.push({ path: "/admin/estate/create" });
     },
+
     onClickUpdateBtn(id) {
       this.$router.push({ path: `/admin/estate/${id}/update` });
     },
+
     onClickDeleteBtn(item) {
       this.deleteDialog = true;
       this.selectItem = item;
     },
+
     onDetailClick(id) {
       this.$router.push({ path: `/estates/${id}` });
     },

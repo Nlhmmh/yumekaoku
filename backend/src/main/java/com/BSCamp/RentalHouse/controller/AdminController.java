@@ -150,12 +150,12 @@ public class AdminController {
 
 	}
 
-	@PutMapping("/estates/rentout/update/{estate_id}")
+	@PutMapping("/estates/{estate_id}/rentout/update")
 	public ResponseEntity<?> updateRentOutStatus(@PathVariable("estate_id") int estateId,
-			@Valid @RequestBody Estate estate) {
-		Estate updatedEstate = estateService.updateRentOutStatus(estateId, estate.isRentOut());
+			@RequestParam(value = "rentout") boolean rentOut) {
+		Estate updatedEstate = estateService.updateRentOutStatus(estateId, rentOut);
 		if (updatedEstate == null) {
-			return ResponseEntity.notFound().build();
+			return ResponseEntity.badRequest().body("Invalid Estate");
 		}
 		return ResponseEntity.ok().body(updatedEstate);
 	}

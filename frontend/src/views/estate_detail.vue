@@ -27,7 +27,9 @@
               </v-chip>
               <v-btn
                 color="primary"
-                @click="!isLogin ? onLoginRoute() : openAppointmentDialog()"
+                @click="
+                  !isLogin ? openGoLoginDialog() : openAppointmentDialog()
+                "
               >
                 Book appointment
               </v-btn>
@@ -50,18 +52,22 @@
                 <tr>
                   <td>Rental Fee</td>
                   <td>-</td>
-                  <td class="text-right">{{ estate.rentFee }}</td>
+                  <td class="text-right">
+                    {{ formatCurrency(estate.rentFee) }}
+                  </td>
                 </tr>
                 <tr>
                   <td>Maintanence Fee</td>
                   <td>-</td>
-                  <td class="text-right">{{ estate.maintenanceFee || 0 }}</td>
+                  <td class="text-right">
+                    {{ formatCurrency(estate.maintenanceFee) || 0 }}
+                  </td>
                 </tr>
                 <tr>
                   <td>Total Fee</td>
                   <td>-</td>
-                  <td class="text-right">
-                    {{ estate.rentFee + estate.maintenanceFee }}
+                  <td class="text-right" style="color: red">
+                    {{ formatCurrency(estate.rentFee + estate.maintenanceFee) }}
                   </td>
                 </tr>
               </tbody>
@@ -160,6 +166,28 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-dialog v-model="goLoginDialog" width="500">
+      <v-card>
+        <v-card-title>Make an appointment?</v-card-title>
+        <v-card-text>
+          Please Login first to make an appointment for this property.
+          <br />
+          <v-btn
+            width="100%"
+            color="primary"
+            class="my-2"
+            @click="onRoute('/login')"
+            >Login</v-btn
+          >
+          <v-divider class="my-3"></v-divider>
+          If you don't have an account, you can create one.
+          <br />
+          <v-btn width="100%" class="my-2" @click="onRoute('/register')"
+            >Register</v-btn
+          >
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 <script>
@@ -172,15 +200,17 @@ export default {
     return {
       apiURL: `${utils.constant.LOCAL_API_URL}/api`,
       estate: {},
-      appointmentDialog: false,
-      addAppointmentForm: false,
+
       loginUser: {},
       isLogin: false,
+      goLoginDialog: false,
+
+      //Add appointment Form
+      alertType: "success",
+      appointmentDialog: false,
+      addAppointmentForm: false,
       times: ["10:00", "11:00", "13:00", "14:00", "15:00", "16:00"],
       selectTime: "10:00",
-
-      alertType: "success",
-
       menu: "",
       appointmentDate: "",
       message: "I would like to make an appointment for this property.",
@@ -214,7 +244,10 @@ export default {
 
     await this.fetchEstate();
   },
+
   methods: {
+    formatCurrency: (value) => utils.formatCurrency(value),
+
     async fetchEstate() {
       const res = await utils.http.get(
         "/api/admin/estates/" + this.$route.params.id
@@ -225,14 +258,6 @@ export default {
           this.estate = data;
         }
       }
-    },
-
-    openAppointmentDialog() {
-      this.appointmentDialog = true;
-    },
-
-    onLoginRoute() {
-      this.$router.push({ path: "/login" });
     },
 
     async addAppointment() {
@@ -249,6 +274,19 @@ export default {
         this.alertType = "success";
         this.message = "I would like to make an appointment for this property.";
       }
+    },
+
+    openAppointmentDialog() {
+      this.appointmentDialog = true;
+    },
+
+    openGoLoginDialog() {
+      this.goLoginDialog = true;
+    },
+
+    onRoute(path) {
+      this.goLoginDialog = false;
+      this.$router.push({ path });
     },
   },
 };

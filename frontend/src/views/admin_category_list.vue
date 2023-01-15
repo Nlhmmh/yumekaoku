@@ -158,7 +158,7 @@ export default {
           ? {
               name: this.search,
             }
-          : null
+          : ""
       );
       if (res && res.status === 200) {
         const data = await res.json();

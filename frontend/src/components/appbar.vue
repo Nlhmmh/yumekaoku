@@ -36,7 +36,7 @@
     </v-app-bar>
 
     <!-- <admin-sidebar></admin-sidebar> -->
-    <v-navigation-drawer v-model="openDrawer" absolute temporary>
+    <v-navigation-drawer v-model="openDrawer" fixed temporary>
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
@@ -113,7 +113,7 @@ export default {
       },
       {
         title: "Categories",
-        icon: "mdi-home",
+        icon: "mdi-domain",
         path: "/admin/categories",
       },
     ],
@@ -145,6 +145,7 @@ export default {
 
   methods: {
     logout() {
+      this.openDrawer = false;
       this.$store.commit("logout");
 
       if (this.$route.path != "/") {
