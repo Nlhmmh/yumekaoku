@@ -157,15 +157,18 @@ public class StrorageServiceImpl implements StorageService {
 
 	@Override
 	public boolean check(String filePath) {
-		filePath = filePath.replace("/media/jpg/", "");
-		filePath = filePath.replace("/media/png/", "");
-		filePath = filePath.replace("/media/mp4/", "");
+		if(filePath != null) {
+			filePath = filePath.replace("/media/jpg/", "");
+			filePath = filePath.replace("/media/png/", "");
+			filePath = filePath.replace("/media/mp4/", "");
 
-		if (filePath != null && filePath != "") {
-			Path filePathPath = this.storagePath.resolve(filePath);
-			return Files.exists(filePathPath) && !Files.isDirectory(filePathPath) && Files.isReadable(filePathPath);
+			if (filePath != null && filePath != "") {
+				Path filePathPath = this.storagePath.resolve(filePath);
+				return Files.exists(filePathPath) && !Files.isDirectory(filePathPath) && Files.isReadable(filePathPath);
+			}
+
+			return false;
 		}
-
 		return false;
 
 	}

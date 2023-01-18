@@ -34,7 +34,7 @@
             style="height: 46px"
           >
             Search
-            <v-icon right> mdi-search </v-icon>
+            <v-icon right>mdi-magnify</v-icon>
           </v-btn>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default {
   components: { estate_card, section_wrapper },
 
   data: () => ({
-    search: null,
+    search: "",
     category: "all",
     result: [],
     categories: [],
@@ -112,8 +112,8 @@ export default {
 <style scoped>
 .landing {
   width: 100%;
-  height: 50vh;
-  background: url("/src/assets/landing-bg.jpg") center center no-repeat;
+  height: 70vh;
+  background: url("/src/assets/landing.jpg") center center no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -123,6 +123,6 @@ export default {
   width: 700px;
   border-radius: 10px;
   padding: 20px;
-  background: rgba(247, 246, 246, 0.5);
+  background: rgba(116, 109, 109, 0.5);
 }
 </style>

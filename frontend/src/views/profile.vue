@@ -107,6 +107,7 @@ import utils from "@/utils/utils";
 
 export default {
   name: "profile",
+
   data() {
     return {
       loginUser: {
@@ -143,6 +144,7 @@ export default {
         deep: true,
       }
     );
+
     await this.getProfile();
 
     if (this.loginUser && this.loginUser?.role === "user") {

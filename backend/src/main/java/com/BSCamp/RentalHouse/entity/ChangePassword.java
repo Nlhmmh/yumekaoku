@@ -2,9 +2,13 @@ package com.BSCamp.RentalHouse.entity;
 
 public class ChangePassword {
 	String currentPassword;
+	
 	String newPassword;
+	
 	String confirmPassword;
+	
 	int ori_id;
+	
 	public String getCurrentPassword() {
 		return currentPassword;
 	}

@@ -120,7 +120,7 @@
 </template>
 
 <script>
-import http from "@/utils/http";
+import utils from "@/utils/utils";
 
 export default {
   name: "admin_category_list",
@@ -152,7 +152,7 @@ export default {
 
   methods: {
     async fetchCategories() {
-      const res = await http.get(
+      const res = await utils.http.get(
         "/api/admin/categories",
         this.search
           ? {
@@ -170,7 +170,7 @@ export default {
 
     async createCategory() {
       if (this.$refs.createCategoryForm.validate()) {
-        const res = await http.post("/api/admin/categories/create", {
+        const res = await utils.http.post("/api/admin/categories/create", {
           name: this.name,
         });
 
@@ -184,7 +184,7 @@ export default {
 
     async updateCategory() {
       if (this.$refs.updateCategoryForm.validate()) {
-        const res = await http.put(
+        const res = await utils.http.put(
           `/api/admin/categories/update/${this.toUpdateId}`,
           {
             name: this.name,
@@ -201,7 +201,7 @@ export default {
     },
 
     async deleteCategory(id) {
-      const res = await http.del(`/api/admin/categories/delete/${id}`);
+      const res = await utils.http.del(`/api/admin/categories/delete/${id}`);
       if (res && res.status === 200) {
         await this.fetchCategories();
         this.deleteDialog = false;

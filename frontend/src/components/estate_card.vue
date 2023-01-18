@@ -22,7 +22,9 @@
         {{ category.name }}
       </v-chip>
       <v-spacer></v-spacer>
-      <div style="color: green">{{ formatCurrency(rentFee) }}</div>
+      <div style="color: green; font-size: 20px; font-weight: 500">
+        {{ formatCurrency(rentFee) }}
+      </div>
     </v-card-text>
   </v-card>
 </template>

@@ -18,7 +18,7 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 public class Appointment {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(length = 225)

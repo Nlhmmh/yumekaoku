@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="login-page">
     <!-- <v-container> -->
-    <v-card width="500px" class="pa-5 my-5" style="margin: 0 auto">
-      <h2 class="text-center my-5">Login Form</h2>
+    <v-card width="500px" class="pa-5">
+      <h2 class="text-center my-5">Please Login here</h2>
       <v-form ref="loginForm" v-model="loginForm">
         <!-- Email -->
         <v-text-field
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import utils from "../utils/utils";
+import utils from "@/utils/utils";
 
 export default {
   name: "login",
@@ -77,6 +77,7 @@ export default {
       loading: false,
     };
   },
+
   methods: {
     async login() {
       if (this.$refs.loginForm.validate()) {
@@ -93,9 +94,9 @@ export default {
             if (data) {
               // Store Login Info in Vuex
               this.$store.commit("setLoginUser", data);
-              // If Admin -> Go to Admin estates page
+              // If Admin -> Go to profile page
               if (data.role == "admin") {
-                this.$router.push({ path: "/admin/estates" });
+                this.$router.push({ path: "/profile" });
               } else {
                 // If User -> Go to Home
                 this.$router.push({ path: "/" });
@@ -114,5 +115,12 @@ export default {
   },
 };
 </script>
+<style>
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
 
 

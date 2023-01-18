@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card width="500px" class="pa-5 my-5" style="margin: 0 auto">
+  <div class="register-page">
+    <v-card width="500px" class="pa-5">
       <h2 class="text-center my-5">Register Form</h2>
       <!-- Form -->
       <v-form ref="registerForm" v-model="registerForm">
@@ -129,3 +129,10 @@ export default {
   },
 };
 </script>
+<style>
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

@@ -47,8 +47,6 @@
             min="0"
             label="Maintenance Fee"
           ></v-text-field>
-
-         
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
@@ -174,7 +172,7 @@
         ></v-progress-circular>
       </v-btn>
 
-      <!-- Error Alert For Movie -->
+      <!-- Error Alert For Estate -->
       <v-alert class="mt-3" v-show="errorAlert" dense type="error">
         Create Estate Failed!
       </v-alert>
@@ -184,7 +182,7 @@
 </template>
 
 <script>
-import http from "@/utils/http";
+import utils from "@/utils/utils";
 
 export default {
   name: "admin_estate_create",
@@ -216,7 +214,7 @@ export default {
   },
   methods: {
     async fetchCategories() {
-      const res = await http.get("/api/categories");
+      const res = await utils.http.get("/api/categories");
       if (res && res.status === 200) {
         const data = await res.json();
         if (data) {
@@ -237,7 +235,7 @@ export default {
 
         // Step 1 -> Post Image
 
-        const resImage = await http.postMedia(
+        const resImage = await utils.http.postMedia(
           "/api/admin/file/create",
           this.image,
           this.image.type
@@ -250,7 +248,7 @@ export default {
 
         // Step 2 -> Post Video
 
-        const resVideo = await http.postMedia(
+        const resVideo = await utils.http.postMedia(
           "/api/admin/file/create",
           this.video,
           this.video.type
@@ -266,7 +264,7 @@ export default {
         // Step 3 -> Create Estate
 
         if (resImgData && resVideoData) {
-          const response = await http.post("/api/admin/estates/create", {
+          const response = await utils.http.post("/api/admin/estates/create", {
             title: this.title,
             description: this.description,
             rentFee: this.rentFee,

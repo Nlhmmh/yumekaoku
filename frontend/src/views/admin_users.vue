@@ -194,7 +194,7 @@
 </template>
   
   <script>
-import http from "@/utils/http";
+import utils from "@/utils/utils";
 
 export default {
   name: "admin_users",
@@ -235,7 +235,7 @@ export default {
 
   methods: {
     async fetchUsers() {
-      const res = await http.get(
+      const res = await utils.http.get(
         "/api/admin/users",
         this.search
           ? {
@@ -253,7 +253,7 @@ export default {
 
     async createUser() {
       if (this.$refs.createUserForm.validate()) {
-        const res = await http.post("/api/admin/users/create", {
+        const res = await utils.http.post("/api/admin/users/create", {
           name: this.name,
           email: this.email,
           phoneNumber: this.phoneNumber,
@@ -275,7 +275,7 @@ export default {
 
     async updateUser() {
       if (this.$refs.updateUserForm.validate()) {
-        const res = await http.put(
+        const res = await utils.http.put(
           `/api/admin/users/update/${this.toUpdateId}`,
           {
             name: this.name,
@@ -300,7 +300,7 @@ export default {
     },
 
     async deleteUser(id) {
-      const res = await http.del(`/api/admin/users/delete/${id}`);
+      const res = await utils.http.del(`/api/admin/users/delete/${id}`);
       if (res && res.status === 200) {
         await this.fetchUsers();
         this.deleteDialog = false;

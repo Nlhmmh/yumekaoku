@@ -5,7 +5,9 @@
         v-if="isLogin && loginUser.role === 'admin'"
         @click="openDrawer = true"
       ></v-app-bar-nav-icon>
-      <a class="navtitle" href="/">Rental House</a>
+      <a class="navtitle" href="/">
+        <v-icon>mdi-home-city </v-icon> Yumekaoku Rental House</a
+      >
 
       <v-spacer></v-spacer>
 

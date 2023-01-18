@@ -1,12 +1,8 @@
 <template>
   <div>
+    <!-- :src="require('/src/assets/landing-bg.jpg')" -->
     <!-- Advanced search form in landing page -->
     <div class="landing">
-      <!-- <v-img
-        max-height="350"
-        max-width="100%"
-        :src="require('/src/assets/landing-bg.jpg')"
-      ></v-img> -->
       <div class="advanced-form">
         <h2 style="color: white" class="my-2">
           Find a home in Japan with Yumekaoku
@@ -40,19 +36,19 @@
             style="height: 46px"
           >
             Search
-            <v-icon right> mdi-search </v-icon>
+            <v-icon right> mdi-magnify </v-icon>
           </v-btn>
         </div>
       </div>
     </div>
 
-    <!-- Featured homes section -->
+    <!-- Featured properties section -->
     <section_wrapper
-      title="Featured Homes"
+      title="Featured Properties"
       subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
     >
       <v-row dense style="padding: 0 50px">
-        <v-col v-for="estate in estates" :key="estate.id" cols="3">
+        <v-col v-for="estate in estates.slice(0, 8)" :key="estate.id" cols="3">
           <estate_card
             :id="estate.id"
             :title="estate.title"
@@ -63,6 +59,26 @@
           ></estate_card>
         </v-col>
       </v-row>
+    </section_wrapper>
+
+    <!-- Latest properties section -->
+    <section_wrapper
+      title="Popular Locations"
+      subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
+    >
+      <div class="location-wrapper">
+        <v-row dense>
+          <v-col v-for="location in locations" :key="location" cols="3">
+            <router-link
+              :to="'/estates?search=' + location"
+              style="text-decoration: none; color: black"
+            >
+              <v-icon color="green">mdi-map-marker</v-icon>
+              {{ location }}
+            </router-link>
+          </v-col>
+        </v-row>
+      </div>
     </section_wrapper>
 
     <v-parallax
@@ -83,8 +99,12 @@
       subtitle="A collection of properties carefully chosen organized by category."
     >
       <v-row class="my-5" dense>
-        <v-col v-for="cat in categories" :key="cat.id" :cols="4">
-          <v-card @click="onRouteChange(cat.id)" class="my-1">
+        <v-col
+          v-for="cat in categories"
+          :key="cat.id"
+          :cols="cat?.id > 3 ? 3 : 4"
+        >
+          <v-card @click="onRouteChange(cat.id)">
             <v-img
               src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
               class="white--text align-end"
@@ -97,13 +117,32 @@
         </v-col>
       </v-row>
     </section_wrapper>
+
+    <!-- Latest properties section -->
+    <section_wrapper
+      title="Latest Properties"
+      subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
+    >
+      <v-row dense style="padding: 0 50px">
+        <v-col v-for="estate in estates.slice(9, 16)" :key="estate.id" cols="3">
+          <estate_card
+            :id="estate.id"
+            :title="estate.title"
+            :location="estate.location"
+            :rentFee="estate.rentFee"
+            :category="estate.category"
+            :imagePath="estate.imagePath"
+          ></estate_card>
+        </v-col>
+      </v-row>
+    </section_wrapper>
   </div>
 </template>
 
 <script>
 import section_wrapper from "../components/section_wrapper.vue";
 import estate_card from "../components/estate_card.vue";
-import http from "@/utils/http";
+import utils from "@/utils/utils";
 
 export default {
   name: "home",
@@ -114,6 +153,16 @@ export default {
     category: "all",
     estates: [],
     categories: [],
+    locations: [
+      "Minato",
+      "Shinjuku",
+      "Kanagawa",
+      "Itabashi",
+      "Nakano",
+      "Shibuya",
+      "Fukuoka",
+      "Saitama",
+    ],
     cards: [
       {
         title: "Pre-fab homes",
@@ -160,7 +209,7 @@ export default {
 
   methods: {
     async fetchEstates() {
-      const res = await http.get("/api/estates");
+      const res = await utils.http.get("/api/estates");
       if (res && res.status === 200) {
         const data = await res.json();
         if (data) {
@@ -170,7 +219,7 @@ export default {
     },
 
     async fetchCategories() {
-      const res = await http.get("/api/categories");
+      const res = await utils.http.get("/api/categories");
       if (res && res.status === 200) {
         const data = await res.json();
         if (data) {
@@ -201,7 +250,7 @@ export default {
 .landing {
   width: 100%;
   height: 70vh;
-  background: url("/src/assets/landing-bg.jpg") center center no-repeat;
+  background: url("/src/assets/landing.jpg") center center no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -211,6 +260,12 @@ export default {
   width: 700px;
   border-radius: 10px;
   padding: 20px;
-  background: rgba(247, 246, 246, 0.5);
+  background: rgba(116, 109, 109, 0.5);
+}
+
+.location-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 </style>
