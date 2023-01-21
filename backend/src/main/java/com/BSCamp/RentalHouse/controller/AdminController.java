@@ -28,8 +28,11 @@ import com.BSCamp.RentalHouse.service.EstateService;
 import com.BSCamp.RentalHouse.service.StorageService;
 import com.BSCamp.RentalHouse.service.UserService;
 
+//import org.springframework.security.access.prepost.PreAuthorize;
+
 @RestController
 @RequestMapping("/api/admin")
+//@PreAuthorize("hasRole('admin')")
 public class AdminController {
 
 	@Autowired

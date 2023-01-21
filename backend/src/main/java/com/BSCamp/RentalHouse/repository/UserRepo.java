@@ -1,6 +1,7 @@
 package com.BSCamp.RentalHouse.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -14,5 +15,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 			String name, String email, String phoneNumber);
 
 	public User findByEmail(String email);
+	
+//	public Optional<User> findByEmail(String email);
 
 }
