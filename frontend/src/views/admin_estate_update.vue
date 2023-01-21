@@ -14,7 +14,7 @@
         </v-col>
         <v-col cols="12" sm="6">
           <v-select
-            v-model="initEstate.category"
+            v-model="category"
             :items="categoryList"
             item-text="name"
             item-value="id"
@@ -48,6 +48,7 @@
             label="Maintenance Fee"
           ></v-text-field>
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-text-field
             v-model="initEstate.size"
@@ -75,6 +76,7 @@
             required
           ></v-text-field>
         </v-col>
+
         <v-col cols="6">
           <v-textarea v-model="initEstate.description">
             <template v-slot:label>
@@ -89,6 +91,7 @@
             </template>
           </v-textarea>
         </v-col>
+
         <!-- Image -->
         <v-col cols="6">
           <v-file-input
@@ -106,7 +109,6 @@
           ></v-file-input>
 
           <!-- Image Preview -->
-
           <v-img
             v-if="initEstate.imagePath != null && imagePath == null"
             :src="apiURL + initEstate.imagePath"
@@ -152,7 +154,7 @@
         </v-col>
       </v-row>
 
-      <!-- Create Btn -->
+      <!-- Update Btn -->
       <v-btn
         :disabled="!estateUpdateForm"
         color="#982f3b"
@@ -168,7 +170,7 @@
         ></v-progress-circular>
       </v-btn>
 
-      <!-- Error Alert For Movie -->
+      <!-- Error Alert For Estate -->
       <v-alert class="mt-3" v-show="errorAlert" dense type="error">
         Update Estate Failed!
       </v-alert>
@@ -201,6 +203,7 @@ export default {
       },
       estateUpdateForm: false,
       categoryList: [],
+      category: "",
 
       errorAlert: false,
       loading: false,
@@ -215,6 +218,7 @@ export default {
   async created() {
     await this.fetchCategories();
     await this.fetchEstate();
+    this.category = this.initEstate?.category?.id;
   },
 
   methods: {
@@ -266,7 +270,6 @@ export default {
         }
 
         // Update Video
-
         if (this.video != null) {
           const resVideo = await utils.http.putMedia(
             "/api/admin/file/update",
@@ -282,7 +285,6 @@ export default {
         }
 
         // Step 3 -> Update Estate
-
         const response = await utils.http.put(
           "/api/admin/estates/update/" + this.initEstate.id,
           {
@@ -291,7 +293,7 @@ export default {
             rentFee: this.initEstate.rentFee,
             maintenanceFee: this.initEstate.maintenanceFee,
             size: this.initEstate.size,
-            category: { id: this.initEstate.category },
+            category: { id: this.category },
             location: this.initEstate.location,
             remarks: this.initEstate.remarks,
             imagePath: imagePath,

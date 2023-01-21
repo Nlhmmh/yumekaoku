@@ -1,5 +1,4 @@
 <template>
-  <!-- <v-container fluid> -->
   <v-card class="pa-5 my-5">
     <v-card-title>Estate Create Form</v-card-title>
     <v-form ref="estateCreateForm" v-model="estateCreateForm">
@@ -48,6 +47,7 @@
             label="Maintenance Fee"
           ></v-text-field>
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-text-field
             v-model="size"
@@ -75,6 +75,7 @@
             required
           ></v-text-field>
         </v-col>
+
         <v-col cols="6">
           <v-textarea v-model="description">
             <template v-slot:label>
@@ -89,6 +90,7 @@
             </template>
           </v-textarea>
         </v-col>
+
         <!-- Image -->
         <v-col cols="6">
           <v-file-input
@@ -179,7 +181,6 @@
       </v-alert>
     </v-form>
   </v-card>
-  <!-- </v-container> -->
 </template>
 
 <script>
@@ -261,9 +262,7 @@ export default {
           this.errorAlert = true;
         }
 
-        console.log(resImgData, resVideoData);
         // Step 3 -> Create Estate
-
         if (resImgData && resVideoData) {
           const response = await utils.http.post("/api/admin/estates/create", {
             title: this.title,
