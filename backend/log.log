@@ -1,0 +1,47 @@
+2023-01-21 16:59:48.198  INFO 16108 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Starting RentalHouseApplication using Java 17.0.5 on DESKTOP-T1EG6E5 with PID 16108 (C:\Users\MSI\Projects\online-rental-house\backend\target\classes started by MSI in C:\Users\MSI\Projects\online-rental-house\backend)
+2023-01-21 16:59:48.199  INFO 16108 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-01-21 16:59:48.255  INFO 16108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-01-21 16:59:48.256  INFO 16108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-01-21 16:59:48.971  INFO 16108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-21 16:59:48.972  INFO 16108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-21 16:59:49.009  INFO 16108 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.AppointmentRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-21 16:59:49.010  INFO 16108 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.CategoryRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-21 16:59:49.012  INFO 16108 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.EstateRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-21 16:59:49.014  INFO 16108 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.BSCamp.RentalHouse.repository.UserRepo; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-21 16:59:49.015  INFO 16108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 0 JDBC repository interfaces.
+2023-01-21 16:59:49.026  INFO 16108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-21 16:59:49.027  INFO 16108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-21 16:59:49.067  INFO 16108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 4 JPA repository interfaces.
+2023-01-21 16:59:52.110  INFO 16108 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-21 16:59:52.123  INFO 16108 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-21 16:59:52.124  INFO 16108 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-21 16:59:52.201  INFO 16108 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-21 16:59:52.201  INFO 16108 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3944 ms
+2023-01-21 16:59:52.381  INFO 16108 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-21 16:59:52.434  INFO 16108 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-01-21 16:59:52.630  INFO 16108 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-01-21 16:59:52.725  INFO 16108 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-01-21 16:59:52.878  INFO 16108 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-01-21 16:59:52.899  INFO 16108 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2023-01-21 16:59:53.878  INFO 16108 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-21 16:59:53.932  INFO 16108 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-21 16:59:54.545  WARN 16108 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-21 16:59:54.747  WARN 16108 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 96014cb4-7cd2-45a0-bdb3-385ff9a471dc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-01-21 16:59:55.008 DEBUG 16108 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 31 mappings in 'requestMappingHandlerMapping'
+2023-01-21 16:59:55.134 DEBUG 16108 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-01-21 16:59:55.142  WARN 16108 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-21 16:59:55.143  INFO 16108 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2023-01-21 16:59:55.144  WARN 16108 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-21 16:59:55.144  INFO 16108 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
+2023-01-21 16:59:55.144  WARN 16108 --- [restartedMain] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-01-21 16:59:55.144  INFO 16108 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/css/**']
+2023-01-21 16:59:55.236  INFO 16108 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a5182b6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31c02081, org.springframework.security.web.context.SecurityContextPersistenceFilter@275bda87, org.springframework.security.web.header.HeaderWriterFilter@3eff3c67, org.springframework.security.web.authentication.logout.LogoutFilter@27321008, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56e0e469, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43ce435, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a621f06, org.springframework.security.web.session.SessionManagementFilter@71dfa8ce, org.springframework.security.web.access.ExceptionTranslationFilter@76f891fc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66279c01]
+2023-01-21 16:59:55.302 DEBUG 16108 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-01-21 16:59:55.347 DEBUG 16108 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-01-21 16:59:55.684  INFO 16108 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-21 16:59:55.692  INFO 16108 --- [restartedMain] c.B.RentalHouse.RentalHouseApplication   : Started RentalHouseApplication in 7.905 seconds (JVM running for 8.442)

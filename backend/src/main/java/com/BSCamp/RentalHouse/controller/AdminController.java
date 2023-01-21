@@ -142,6 +142,13 @@ public class AdminController {
 
 	@PutMapping("/estates/update/{estate_id}")
 	public ResponseEntity<?> updateEstate(@PathVariable("estate_id") int estateId, @Valid @RequestBody Estate estate) {
+		if (estate.getCategory() != null) {
+			Category category = categoryService.get(estate.getCategory().getId());
+			if (category == null) {
+				return ResponseEntity.badRequest().body("Invalid Category.");
+			}
+		}
+
 		Estate updatedEstate = estateService.update(estateId, estate);
 		if (updatedEstate == null) {
 			return ResponseEntity.notFound().build();

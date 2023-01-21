@@ -1,11 +1,10 @@
 package com.BSCamp.RentalHouse.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,19 +13,23 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.ColumnDefault;
 
-
 @Entity
-public class Appointment {
+public class Appointment implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(length = 225)
 	private String message;
-	
+
 	@Column(nullable = false)
 	private LocalDateTime appointmentDate;
-	
+
 //	@Column(columnDefinition = "ENUM('upcoming','progress','done','cancelled') NOT NULL")
 //	@Enumerated(EnumType.STRING)
 //	private AppointmentStatus status;
