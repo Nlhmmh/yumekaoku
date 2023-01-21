@@ -129,7 +129,7 @@
       subtitle="Get instant access to homes for rent in popular locations across Japan."
     >
       <v-row dense style="padding: 0 100px">
-        <v-col v-for="estate in estates.slice(9, 16)" :key="estate.id" cols="3">
+        <v-col v-for="estate in estates.slice(8, 17)" :key="estate.id" cols="3">
           <estate_card
             :id="estate.id"
             :title="estate.title"
