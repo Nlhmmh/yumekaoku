@@ -27,7 +27,8 @@
 
           <!-- :disabled="!search || categoryId === 0" -->
           <v-btn
-            color="success"
+            color="#982f3b"
+            dark
             class="mx-1"
             large
             @click="onSearch()"
@@ -74,13 +75,15 @@ export default {
   }),
 
   async created() {
-    await this.fetchSearchedEstates(this.$route.query);
+    await this.fetchSearchedEstates();
     await this.fetchCategories();
+    this.search = this.$route?.query?.search;
+    this.category = parseInt(this.$route?.query?.category);
   },
 
   methods: {
-    async fetchSearchedEstates(query) {
-      const res = await utils.http.get(`/api/estates`, query);
+    async fetchSearchedEstates() {
+      const res = await utils.http.get(`/api/estates`, this.$route.query);
 
       if (res && res.status === 200) {
         const data = await res.json();
@@ -105,6 +108,7 @@ export default {
         path: "/estates",
         query: { search: this.search ?? "", category: this.category },
       });
+      this.$router.go(0);
     },
   },
 };

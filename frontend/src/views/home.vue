@@ -29,7 +29,8 @@
 
           <!-- :disabled="!search || categoryId === 0" -->
           <v-btn
-            color="success"
+            color="#982f3b"
+            dark
             class="mx-1"
             large
             @click="onSearch()"
@@ -47,7 +48,7 @@
       title="Featured Properties"
       subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
     >
-      <v-row dense style="padding: 0 50px">
+      <v-row dense style="padding: 0 100px">
         <v-col v-for="estate in estates.slice(0, 8)" :key="estate.id" cols="3">
           <estate_card
             :id="estate.id"
@@ -61,7 +62,7 @@
       </v-row>
     </section_wrapper>
 
-    <!-- Latest properties section -->
+    <!-- Popular locations section -->
     <section_wrapper
       title="Popular Locations"
       subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
@@ -73,7 +74,7 @@
               :to="'/estates?search=' + location"
               style="text-decoration: none; color: black"
             >
-              <v-icon color="green">mdi-map-marker</v-icon>
+              <v-icon color="#982f3b">mdi-map-marker</v-icon>
               {{ location }}
             </router-link>
           </v-col>
@@ -81,14 +82,18 @@
       </div>
     </section_wrapper>
 
+    <!-- Parallax Image section -->
     <v-parallax
       dark
-      src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+      src="https://www.relonetworkasia.com/wp-content/uploads/2013/11/japan-housing-1.jpg"
     >
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="text-h4 font-weight-thin mb-4">Vuetify</h1>
-          <h4 class="subheading">Build your application today!</h4>
+          <h1 class="text-h4 font-weight-thin mb-4">Yumekaoku</h1>
+          <h4 class="subheading">
+            We support you with useful information about Japan, your locality,
+            apartments, daily life etc.
+          </h4>
         </v-col>
       </v-row>
     </v-parallax>
@@ -98,15 +103,15 @@
       title="Categories"
       subtitle="A collection of properties carefully chosen organized by category."
     >
-      <v-row class="my-5" dense>
+      <v-row class="my-5" dense style="padding: 0 100px">
         <v-col
           v-for="cat in categories"
           :key="cat.id"
-          :cols="cat?.id > 3 ? 3 : 4"
+          :cols="cat?.id > 3 ? 3 : categories?.length > 7 ? 3 : 4"
         >
           <v-card @click="onRouteChange(cat.id)">
             <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
+              :src="catImages[cat.id - 1]"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
@@ -121,9 +126,9 @@
     <!-- Latest properties section -->
     <section_wrapper
       title="Latest Properties"
-      subtitle="With Yumekaoku, everything related to finding an apartment can be done online"
+      subtitle="Get instant access to homes for rent in popular locations across Japan."
     >
-      <v-row dense style="padding: 0 50px">
+      <v-row dense style="padding: 0 100px">
         <v-col v-for="estate in estates.slice(9, 16)" :key="estate.id" cols="3">
           <estate_card
             :id="estate.id"
@@ -163,42 +168,15 @@ export default {
       "Fukuoka",
       "Saitama",
     ],
-    cards: [
-      {
-        title: "Pre-fab homes",
-        src: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
-        flex: 4,
-      },
-      {
-        title: "Favorite road trips",
-        src: "https://cdn.vuetifyjs.com/images/cards/road.jpg",
-        flex: 4,
-      },
-      {
-        title: "Best airlines",
-        src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
-        flex: 4,
-      },
-      {
-        title: "Pre-fab homes",
-        src: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
-        flex: 3,
-      },
-      {
-        title: "Favorite road trips",
-        src: "https://cdn.vuetifyjs.com/images/cards/road.jpg",
-        flex: 3,
-      },
-      {
-        title: "Best airlines",
-        src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
-        flex: 3,
-      },
-      {
-        title: "Pre-fab homes",
-        src: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
-        flex: 3,
-      },
+    catImages: [
+      require("/src/assets/1ldk_apartment.jpg"),
+      require("/src/assets/2ldk_apartment.jpg"),
+      require("/src/assets/3ldk_apartment.png"),
+      require("/src/assets/1k_apartment.jpg"),
+      require("/src/assets/1R_apartment1.jpg"),
+      require("/src/assets/retail_shop.jpg"),
+      require("/src/assets/sharehouse.jpg"),
+      require("/src/assets/office.jpg"),
     ],
   }),
 

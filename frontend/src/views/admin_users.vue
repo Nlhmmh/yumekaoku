@@ -18,7 +18,12 @@
           Add
         </v-btn>
       </v-card-title>
-      <v-data-table :headers="headers" :items="userList" :items-per-page="10">
+      <v-data-table
+        :headers="headers"
+        :items="userList"
+        :items-per-page="10"
+        :search="search"
+      >
         <template v-slot:item.role="{ item }">
           <v-chip
             label
@@ -113,7 +118,8 @@
             >Cancel</v-btn
           >
           <v-btn
-            color="success"
+            color="#982f3b"
+            :dark="createUserForm"
             @click="createUser()"
             :disabled="!createUserForm"
             >Submit</v-btn
@@ -168,7 +174,8 @@
             >Cancel</v-btn
           >
           <v-btn
-            color="success"
+            color="#982f3b"
+            :dark="updateUserForm"
             @click="updateUser(item)"
             :disabled="!updateUserForm"
             >Submit</v-btn

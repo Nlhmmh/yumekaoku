@@ -13,7 +13,7 @@
         </small>
       </template>
       <template v-slot:item.estate="{ item }">
-        <router-link to="{path: '/estates/' + item?.estate?.id}">{{
+        <router-link :to="'/estates/' + item?.estate?.id">{{
           item?.estate?.title
         }}</router-link>
       </template>

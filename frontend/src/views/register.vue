@@ -53,9 +53,10 @@
 
         <!-- Register Btn -->
         <v-btn
-          width="100%"
+          block
+          color="#982f3b"
+          :dark="registerForm"
           :disabled="!registerForm"
-          color="success"
           class="mr-4"
           @click="register()"
         >

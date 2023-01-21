@@ -27,7 +27,8 @@
 
           <!-- :disabled="!search || categoryId === 0" -->
           <v-btn
-            color="success"
+            color="#982f3b"
+            dark
             class="mx-1"
             large
             @click="onSearch()"

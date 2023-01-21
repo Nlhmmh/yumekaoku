@@ -22,7 +22,7 @@
             </v-img>
             <h2 class="my-2">{{ estate.title }}</h2>
             <div class="d-flex justify-content-between">
-              <v-chip label color="secondary">
+              <v-chip label color="secondary" small>
                 {{ estate?.category?.name }}
               </v-chip>
               <v-btn
@@ -76,7 +76,7 @@
             <div>
               <div class="my-2" v-if="estate.remarks">
                 <h4>Remarks</h4>
-                <p>{{ estate.remarks }}</p>
+                <small style="color: red">{{ estate.remarks }}</small>
               </div>
 
               <video
@@ -119,7 +119,7 @@
                 <v-btn text @click="menu = false"> Cancel </v-btn>
                 <v-btn
                   text
-                  color="success"
+                  color="#982f3b"
                   @click="$refs.menu.save(appointmentDate)"
                 >
                   OK
@@ -162,7 +162,7 @@
             "
             >Cancel</v-btn
           >
-          <v-btn color="success" @click="addAppointment()">Book</v-btn>
+          <v-btn color="#982f3b" dark @click="addAppointment()">Book</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -206,7 +206,6 @@ export default {
       goLoginDialog: false,
 
       //Add appointment Form
-      alertType: "success",
       appointmentDialog: false,
       addAppointmentForm: false,
       times: ["10:00", "11:00", "13:00", "14:00", "15:00", "16:00"],
@@ -271,8 +270,9 @@ export default {
 
       if (res && res.status === 200) {
         this.appointmentDialog = false;
-        this.alertType = "success";
+
         this.message = "I would like to make an appointment for this property.";
+        this.$router.push({ path: "/profile" });
       }
     },
 

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-app-bar app color="success" dense dark>
+    <!-- background-color: #be0029 -->
+    <v-app-bar app color="#982f3b" dense dark>
       <v-app-bar-nav-icon
         v-if="isLogin && loginUser.role === 'admin'"
         @click="openDrawer = true"

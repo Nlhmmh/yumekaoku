@@ -69,7 +69,13 @@
             >Cancel</v-btn
           >
 
-          <v-btn color="success" @click="createCategory()">Submit</v-btn>
+          <v-btn
+            color="#982f3b"
+            :dark="createCategoryForm"
+            :disabled="!createCategoryForm"
+            @click="createCategory()"
+            >Submit</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -98,7 +104,13 @@
             "
             >Cancel</v-btn
           >
-          <v-btn color="success" @click="updateCategory(item)">Submit</v-btn>
+          <v-btn
+            color="#982f3b"
+            :dark="updateCategoryForm"
+            :disabled="!updateCategoryForm"
+            @click="updateCategory(item)"
+            >Submit</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -121,6 +133,7 @@
 
 <script>
 import utils from "@/utils/utils";
+import { computed } from "vue";
 
 export default {
   name: "admin_category_list",

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card width="500px" class="pa-5 my-5" style="margin: 0 auto">
+  <div class="password-update-page">
+    <v-card width="500px" class="pa-5">
       <h2 class="text-center my-5">Password Update Form</h2>
       <!-- Form -->
       <v-form ref="passwordUpdateForm" v-model="passwordUpdateForm">
@@ -62,7 +62,8 @@
             class="mx-4"
             @click="submit"
             :disabled="!passwordUpdateForm"
-            color="success"
+            color="#982f3b"
+            :dark="passwordUpdateForm"
           >
             submit
           </v-btn>
@@ -144,3 +145,10 @@ export default {
   },
 };
 </script>
+<style>
+.password-update-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

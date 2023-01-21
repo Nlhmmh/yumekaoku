@@ -47,8 +47,6 @@
             min="0"
             label="Maintenance Fee"
           ></v-text-field>
-
-         
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
@@ -94,12 +92,13 @@
         <!-- Image -->
         <v-col cols="6">
           <v-file-input
-            v-model="initEstate.image"
+            v-model="image"
             label="Estate Image"
             show-size
             prepend-icon="mdi-camera"
             placeholder="Choose Estate Image"
             accept="image/png, image/jpeg, image/jpg"
+            @change="onChangeImage"
             @click:clear="
               imagePath = null;
               image = null;
@@ -107,20 +106,22 @@
           ></v-file-input>
 
           <!-- Image Preview -->
+
           <v-img
-            v-if="imagePath != null"
-            :src="imagePath"
-            width="200"
-            height="150"
+            v-if="initEstate.imagePath != null && imagePath == null"
+            :src="apiURL + initEstate.imagePath"
+            width="100%"
             contain
           >
+          </v-img>
+          <v-img v-if="imagePath != null" :src="imagePath" width="100%" contain>
           </v-img>
         </v-col>
 
         <!-- Video -->
         <v-col cols="6">
           <v-file-input
-            v-model="initEstate.video"
+            v-model="video"
             label="Estate Video"
             show-size
             prepend-icon="mdi-video"
@@ -135,7 +136,7 @@
 
           <!-- Video Preview -->
           <video
-            v-if="initEstate.videoPath != null"
+            v-if="initEstate.videoPath != null && videoPath == null"
             class="mb-2"
             width="100%"
             :src="apiURL + initEstate.videoPath"
@@ -154,7 +155,8 @@
       <!-- Create Btn -->
       <v-btn
         :disabled="!estateUpdateForm"
-        color="success"
+        color="#982f3b"
+        :dark="estateUpdateForm"
         class="mt-4 mr-4"
         @click="updateEstate()"
       >
@@ -193,19 +195,14 @@ export default {
         rentFee: "",
         maintenanceFee: "",
         category: "",
-        image: null,
         imagePath: null,
-        video: null,
         videoPath: null,
         rentOut: false,
       },
-      imagePath: null,
-      videoPath: null,
       estateUpdateForm: false,
       categoryList: [],
 
       errorAlert: false,
-
       loading: false,
 
       image: null,
@@ -214,10 +211,12 @@ export default {
       videoPath: null,
     };
   },
+
   async created() {
     await this.fetchCategories();
     await this.fetchEstate();
   },
+
   methods: {
     async fetchEstate() {
       const res = await utils.http.get(
@@ -252,11 +251,11 @@ export default {
         let videoPath = this.initEstate.videoPath;
 
         // Update Image
-        if (this.initEstate.image != null) {
+        if (this.image != null) {
           const resImg = await utils.http.putMedia(
             "/api/admin/file/update",
-            this.initEstate.image,
-            this.initEstate.image.type,
+            this.image,
+            this.image.type,
             this.initEstate.imagePath
           );
           if (resImg && resImg.status === 200) {
@@ -268,11 +267,11 @@ export default {
 
         // Update Video
 
-        if (this.initEstate.video != null) {
+        if (this.video != null) {
           const resVideo = await utils.http.putMedia(
             "/api/admin/file/update",
-            this.initEstate.video,
-            this.initEstate.video.type,
+            this.video,
+            this.video.type,
             this.initEstate.videoPath
           );
           if (resVideo && resVideo.status === 200) {
@@ -292,7 +291,7 @@ export default {
             rentFee: this.initEstate.rentFee,
             maintenanceFee: this.initEstate.maintenanceFee,
             size: this.initEstate.size,
-            category: { id: this.initEstate.category.id },
+            category: { id: this.initEstate.category },
             location: this.initEstate.location,
             remarks: this.initEstate.remarks,
             imagePath: imagePath,
@@ -301,8 +300,8 @@ export default {
           }
         );
         if (response && response.status === 200) {
-          this.initEstate.image = null;
-          this.initEstate.video = null;
+          this.image = null;
+          this.video = null;
           this.$router.push({ path: "/admin/estates" });
         } else {
           this.errorAlert = true;

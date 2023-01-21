@@ -10,7 +10,7 @@
               {{ loginUser.name }}
             </p>
 
-            <p>Data</p>
+            <p>Information</p>
             <div class="text--primary">
               <div v-if="loginUser.role == 'admin'">Admin</div>
               <div>{{ loginUser.email }}</div>
@@ -19,10 +19,10 @@
           </v-card-text>
 
           <!-- Change Pwd Btn -->
-          <v-btn text color="teal accent-4" @click="onUpdateProfile()">
+          <v-btn text color="primary" @click="onUpdateProfile()">
             Update Profile
           </v-btn>
-          <v-btn text color="teal accent-4" @click="changePwd()">
+          <v-btn text color="primary" @click="changePwd()">
             Update Password
           </v-btn>
         </v-card>
@@ -46,7 +46,7 @@
               </small>
             </template>
             <template v-slot:item.estate="{ item }">
-              <router-link to="{path: '/estates/' + item?.estate?.id}">{{
+              <router-link :to="'/estates/' + item?.estate?.id">{{
                 item?.estate?.title
               }}</router-link>
             </template>

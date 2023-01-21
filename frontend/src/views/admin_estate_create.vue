@@ -160,7 +160,8 @@
       <!-- Create Btn -->
       <v-btn
         :disabled="!estateCreateForm"
-        color="success"
+        color="#982f3b"
+        :dark="estateCreateForm"
         class="mt-4 mr-4"
         @click="createEstate()"
       >

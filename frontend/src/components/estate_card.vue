@@ -18,11 +18,11 @@
     <v-card-subtitle> {{ location }} </v-card-subtitle>
 
     <v-card-text class="d-flex justify-between align-center">
-      <v-chip label color="secondary">
+      <v-chip label color="secondary" small>
         {{ category.name }}
       </v-chip>
       <v-spacer></v-spacer>
-      <div style="color: green; font-size: 20px; font-weight: 500">
+      <div style="color: #982f3b; font-size: 20px; font-weight: 500">
         {{ formatCurrency(rentFee) }}
       </div>
     </v-card-text>

@@ -15,7 +15,12 @@
         Add
       </v-btn>
     </v-card-title>
-    <v-data-table :headers="headers" :items="estatelist" :items-per-page="10">
+    <v-data-table
+      :headers="headers"
+      :items="estatelist"
+      :items-per-page="10"
+      :search="search"
+    >
       <template v-slot:item.rentFee="{ item }">
         {{ formatCurrency(item.rentFee) }}
       </template>
@@ -47,13 +52,13 @@
         <!-- go to detail -->
         <v-btn
           class="mr-3"
-          color="success"
+          color="#982f3b"
           fab
           x-small
           dark
           @click="onDetailClick(item.id)"
         >
-          <v-icon>mdi-dots-horizontal</v-icon>
+          <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
         <!-- Edit Estate -->
         <v-btn

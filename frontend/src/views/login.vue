@@ -34,9 +34,10 @@
 
         <!-- Login Btn -->
         <v-btn
-          width="100%"
+          block
+          color="#982f3b"
+          :dark="loginForm"
           :disabled="!loginForm"
-          color="success"
           class="mr-4 my-5"
           @click="login()"
         >
