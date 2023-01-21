@@ -49,6 +49,9 @@
             (v) =>
               (v && v.length <= 10) ||
               'Password must be less than 10 characters',
+            (v) =>
+              (v && v === newPassword) ||
+              `The confirm password you entered don't match`,
           ]"
           :type="passwordShow ? 'text' : 'password'"
           :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
@@ -123,7 +126,7 @@ export default {
             confirmPassword: this.confirmPassword,
           });
           if (res.status === 200) {
-            this.$router.push({ path: "/profile" });
+            this.$router.push({ path: "/login" });
           } else {
             this.errorAlert = true;
             const data = await res.json();

@@ -181,10 +181,14 @@ public class AdminController {
 		}
 
 		// Delete Estate Image
-		storageService.delete(estate.getImagePath());
+		if(estate.getImagePath() != null) {
+			storageService.delete(estate.getImagePath());
+		}
 
 		// Delete Estate Video
-		storageService.delete(estate.getVideoPath());
+		if(estate.getVideoPath() != null) {
+			storageService.delete(estate.getVideoPath());
+		}
 		return ResponseEntity.ok().build();
 
 	}
